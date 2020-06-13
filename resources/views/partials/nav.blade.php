@@ -23,6 +23,7 @@
                 {{-- autoload, de ahi nos dirigimos a nuestra terminal y escribimos este comando  --}}
                 {{-- composer dumpautoload y regarga el navegador --}}
                 <li class=" nav-item {{ setActive('home') }}"><a href= "/" class="nav-link"> Inicio </a></li>
+                <li class=" nav-item {{ setActive('bibliotecario') }}"><a href= "/bibliotecario" class="nav-link"> Bibliotecarios </a></li>
                 <li class=" nav-item {{ setActive('autor') }}"><a href= "/autor" class="nav-link"> Autores </a></li>
                 <li class=" nav-item {{ setActive('libro') }}"><a href= "/libro" class="nav-link"> Libros </a></li>
                 <li class=" nav-item {{ setActive('usuario') }}"><a href= "/usuario" class="nav-link"> Clientes </a></li>

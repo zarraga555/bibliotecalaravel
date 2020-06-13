@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::view('/', 'home')->name('home');
+
+Route::view('/bibliotecario', 'bibliotecario')->name('bibliotecario');
+
 Route::view('/autor', 'autor')->name('autor');
 Route::post('/autor', 'autorValidationController@store' );
 
