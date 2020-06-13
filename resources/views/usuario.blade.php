@@ -44,9 +44,9 @@ Clientes
                     <td>{{ $personaitem->paisNacimiento }}</td>
                     <td>
                         <a href="{{ route('persona.edit', $personaitem) }}"
-                            class="btn btn-success">Editar</a>
+                            class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
                         <a href=""
-                            class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Eliminar</a>
+                            class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                     </td>
             </tr>
         @empty
