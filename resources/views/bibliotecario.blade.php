@@ -33,17 +33,17 @@ Bibliotecarios
         </thead>
         <tbody>
             <tr>
-                @forelse($persona as $personaitem)
-                    <td>{{ $personaitem->ci }}</td>
-                    <td>{{ $personaitem->complemento }}</td>
-                    <td>{{ $personaitem->nombre }}</td>
-                    <td>{{ $personaitem->direccion }}</td>
-                    <td>{{ $personaitem->telefono }}</td>
-                    <td>{{ $personaitem->correo }}</td>
-                    <td>{{ $personaitem->fechaNacimiento }}</td>
-                    <td>{{ $personaitem->paisNacimiento }}</td>
+                @forelse($bibliotecario as $bibliotecarioitem)
+                    <td>{{ $bibliotecarioitem->ci }}</td>
+                    <td>{{ $bibliotecarioitem->complemento }}</td>
+                    <td>{{ $bibliotecarioitem->nombre }}</td>
+                    <td>{{ $bibliotecarioitem->direccion }}</td>
+                    <td>{{ $bibliotecarioitem->telefono }}</td>
+                    <td>{{ $bibliotecarioitem->correo }}</td>
+                    <td>{{ $bibliotecarioitem->fechaNacimiento }}</td>
+                    <td>{{ $bibliotecarioitem->paisNacimiento }}</td>
                     <td>
-                        <a href="{{ route('persona.edit', $personaitem) }}"
+                        <a href="{{ route('bibliotecario.edit', $bibliotecarioitem) }}"
                             class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
                         <a href=""
                             class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
@@ -63,15 +63,15 @@ Bibliotecarios
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Elimnar Persona</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Elimnar Bibliotecario</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="{{ route('persona.destroy', $personaitem) }}">
+            <form method="post" action="{{ route('bibliotecario.destroy', $bibliotecarioitem) }}">
                 @csrf @method('DELETE')
                 <div class="modal-body">
-                    ¿Estas seguro que deseas elimar la persona?
+                    ¿Estas seguro que deseas elimar al Bibliotecario?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
