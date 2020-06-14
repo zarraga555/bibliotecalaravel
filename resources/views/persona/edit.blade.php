@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group">
                     <label for="correo">Correo Electronico</label>
-                    <input type="text" name="correo" class="form-control @error('correo') is-invalid @enderror" value="{{ old('ci', $personaitem->correo) }}">
+                    <input type="text" name="correo" class="form-control @error('correo') is-invalid @enderror" value="{{ old('correo', $personaitem->correo) }}">
                     {!! $errors->first('correo', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
