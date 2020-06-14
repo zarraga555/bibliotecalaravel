@@ -54,6 +54,7 @@ Bibliotecarios
             @endforelse
         </tbody>
     </table>
+    {{ bibliotecario->links() }}
 </div>
 
 
