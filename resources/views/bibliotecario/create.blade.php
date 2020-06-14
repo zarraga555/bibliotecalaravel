@@ -53,14 +53,14 @@
                     {!! $errors->first('correo', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
-                    <label for="paisNacimiento">Nacionalidad</label>
-                    <select class="form-control @error('paisNacimiento') is-invalid @enderror" name="paisNacimiento">
+                    <label for="turno">Turno</label>
+                    <select class="form-control @error('turno') is-invalid @enderror" name="turno">
                         <option value="">Seleccionar Opcion</option>
                         <option value="Tiempo Completo">Tiempo Completo</option>
                         <option value="Medio Tiempo Mañana">Medio Tiempo Mañana</option>
                         <option value="Medio Tiempo Tarde">Medio Tiempo Tarde</option>
                     </select>
-                    {!! $errors->first('paisNacimiento', '<small>:message</small><br>') !!}
+                    {!! $errors->first('turno', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="salario">Salario en Bs</label>

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class bibliotecarioController extends Controller
 {
     public function Mostrar (){
-        $bibliotecario = Bibliotecario::first()->paginate();
+        $bibliotecario = Bibliotecario::paginate(8);
         return view('bibliotecario', compact('bibliotecario'));
     }
 

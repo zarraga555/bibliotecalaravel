@@ -16,7 +16,7 @@ Bibliotecarios
     @endif--}}
 </div>
 
-<div class="row justify-content-md-center">
+<div class="">
     <table class="table table-responsive table">
         <thead>
             <tr>
@@ -49,12 +49,15 @@ Bibliotecarios
                             class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                     </td>
             </tr>
-        @empty
-            <span>No hay datos disponibles</span>
-            @endforelse
+                @empty
+            <tr>
+                <td colspan="9" class="errortable" align="center">No hay datos disponibles</td>
+            </tr>
+                @endforelse
         </tbody>
     </table>
-    {{ bibliotecario->links() }}
+
+    {{-- {{ bibliotecario->links() }} --}}
 </div>
 
 
@@ -69,7 +72,7 @@ Bibliotecarios
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="{{ route('bibliotecario.destroy', $bibliotecarioitem) }}">
+            <form method="POST" action="{{ route('bibliotecario.destroy', $bibliotecario) }}">
                 @csrf @method('DELETE')
                 <div class="modal-body">
                     ¿Estas seguro que deseas elimar al Bibliotecario?
