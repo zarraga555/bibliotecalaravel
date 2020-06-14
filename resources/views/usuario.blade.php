@@ -16,7 +16,7 @@ Clientes
     @endif--}}
 </div>
 
-<div class="row justify-content-md-center">
+<div class="">
     <table class="table table-responsive table">
         <thead>
             <tr>
@@ -49,8 +49,10 @@ Clientes
                             class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                     </td>
             </tr>
-        @empty
-            <span>No hay datos disponibles</span>
+                @empty
+                <tr>
+                    <td colspan="9" class="errortable" align="center">No hay datos disponibles</td>
+                </tr>
             @endforelse
         </tbody>
     </table>
@@ -68,7 +70,7 @@ Clientes
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="{{ route('persona.destroy', $personaitem) }}">
+            <form method="post" action="{{ route('persona.destroy', $persona) }}">
                 @csrf @method('DELETE')
                 <div class="modal-body">
                     ¿Estas seguro que deseas elimar la persona?

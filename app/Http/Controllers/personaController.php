@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class personaController extends Controller
 {
     public function Mostrar (){
-        $persona = Persona::first()->paginate();
+        $persona = Persona::paginate();
 
         return view('usuario', compact('persona'));
     }
