@@ -40,8 +40,8 @@ Bibliotecarios
                     <td>{{ $bibliotecarioitem->direccion }}</td>
                     <td>{{ $bibliotecarioitem->telefono }}</td>
                     <td>{{ $bibliotecarioitem->correo }}</td>
-                    <td>{{ $bibliotecarioitem->fechaNacimiento }}</td>
-                    <td>{{ $bibliotecarioitem->paisNacimiento }}</td>
+                    <td>{{ $bibliotecarioitem->turno }}</td>
+                    <td>{{ $bibliotecarioitem->salario }}</td>
                     <td>
                         <a href="{{ route('bibliotecario.edit', $bibliotecarioitem) }}"
                             class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
