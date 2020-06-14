@@ -21,6 +21,8 @@ class CreateBibliotecarioTable extends Migration
             $table->string('direccion');
             $table->bigInteger('telefono');
             $table->string('correo');
+            $table->string('turno');
+            $table->double('salario');
             $table->date('fechaNacimiento');
             $table->string('paisNacimiento');
             $table->timestamps();
