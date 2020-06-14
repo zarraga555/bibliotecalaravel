@@ -328,5 +328,3 @@
     {{-- e ingresamos a la carpeta lang y creamos el archivo es.json  --}}
     </div>
 @endsection
-
-@endsection
