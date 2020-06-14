@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::view('/', 'home')->name('home');
 
-Route::view('/bibliotecario', 'bibliotecario')->name('bibliotecario');
+Route::get('/bibliotecario', 'bibliotecarioController@Mostrar')->name('bibliotecario.index');
+Route::get('/bibliotecario/create','bibliotecarioController@create')->name('bibliotecario.create');
+Route::get('/bibliotecario/{bibliotecarioitem}/edit','bibliotecarioController@edit')->name('bibliotecario.edit');
+Route::patch('/bibliotecario/{bibliotecarioitem}','bibliotecario@update')->name('bibliotecario.update');
+Route::post('/bibliotecario/create', 'bibliotecarioController@store' )->name('bibliotecario.store');
+Route::delete('/bibliotecario/{bibliotecarioitem}', 'bibliotecario@destroy')->name('bibliotecario.destroy');
 
 Route::view('/autor', 'autor')->name('autor');
 Route::post('/autor', 'autorValidationController@store' );
