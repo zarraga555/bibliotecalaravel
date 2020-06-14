@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label for="salario">Salario en Bs</label>
-                    <input type="text" name="salario" class="form-control @error('salario') is-invalid @enderror" value="{{ {{ old('salario', $bibliotecarioitem->salario)  }} }}">
+                    <input type="text" name="salario" class="form-control @error('salario') is-invalid @enderror" value="{{ old('salario', $bibliotecarioitem->salario) }}">
                     {!! $errors->first('salario', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
