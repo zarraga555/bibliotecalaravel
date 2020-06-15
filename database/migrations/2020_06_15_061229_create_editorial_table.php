@@ -15,7 +15,7 @@ class CreateEditorialTable extends Migration
     {
         Schema::create('editorial', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
-
+            $table->string('nombre', 300);
             $table->timestamps();
         });
     }
