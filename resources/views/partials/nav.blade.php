@@ -25,6 +25,8 @@
                 <li class=" nav-item {{ setActive('home') }}"><a href= "/" class="nav-link"> Inicio </a></li>
                 <li class=" nav-item {{ setActive('bibliotecario') }}"><a href= "/bibliotecario" class="nav-link"> Bibliotecarios </a></li>
                 <li class=" nav-item {{ setActive('autor') }}"><a href= "/autor" class="nav-link"> Autores </a></li>
+                <li class=" nav-item {{ setActive('categoria') }}"><a href= "/categoria" class="nav-link"> Categoria Libro </a></li>
+                <li class=" nav-item {{ setActive('editorial') }}"><a href= "/editorial" class="nav-link"> Editorial </a></li>
                 <li class=" nav-item {{ setActive('libro') }}"><a href= "/libro" class="nav-link"> Libros </a></li>
                 <li class=" nav-item {{ setActive('usuario') }}"><a href= "/usuario" class="nav-link"> Clientes </a></li>
                 <li class=" nav-item {{ setActive('prestamo') }}"><a href= "/prestamo" class="nav-link"> Prestamos </a></li>
