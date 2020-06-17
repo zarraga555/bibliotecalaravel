@@ -16,7 +16,7 @@ Clientes
     @endif--}}
 </div>
 
-<div class="">
+<div class="row justify-content-md-center">
     <table class="table table-responsive table">
         <thead>
             <tr>
@@ -50,41 +50,37 @@ Clientes
                     </td>
             </tr>
                 @empty
-                <tr>
                     <td colspan="9" class="errortable" align="center">No hay datos disponibles</td>
-                </tr>
-            @endforelse
+                @endforelse
         </tbody>
     </table>
 </div>
 
 
-<!-- MODAL DE ELIMINADO LOGICO-->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Elimnar Persona</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" action="{{ route('persona.destroy', $persona) }}">
-                @csrf @method('DELETE')
-                <div class="modal-body">
-                    ¿Estas seguro que deseas elimar la persona?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger btn-danger">Eliminar</button>
-                </div>
-            </form>
-
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Elimnar Persona</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+        <form method="post" action="{{ route('persona.destroy', $personaitem ?? '') }}">
+            @csrf @method('DELETE')
+            <div class="modal-body">
+                ¿Estas seguro que deseas elimar la persona?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-danger btn-danger">Eliminar</button>
+            </div>
+        </form>
+
     </div>
 </div>
-<!-- FINAL DEL MODAL DE ELIMINADO LOGICO-->
+</div>
 
 
 
