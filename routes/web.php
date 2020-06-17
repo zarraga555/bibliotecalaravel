@@ -25,9 +25,12 @@ Route::view('/', 'home')->name('home');
 // Route::post('/bibliotecario/create', 'bibliotecarioController@store' )->name('bibliotecario.store');
 // Route::delete('/bibliotecario/{bibliotecario}', 'bibliotecarioController@destroy')->name('bibliotecario.destroy');
 
-Route::resourceVerbs([
-    'categoria' => 'categorialibro',
-]);
+// Route::get('/autor', 'autorController@index')->name('autor.index');
+// Route::get('/autor/create','autorController@create')->name('autor.create');
+// Route::get('/autor/{autor}/edit','autorController@edit')->name('autor.edit');
+// Route::patch('/autor/{autor}','autorController@update')->name('autor.update');
+// Route::post('/autor/create', 'autorController@store' )->name('autor.store');
+// Route::delete('/autor/{autor}', 'autorController@destroy')->name('autor.destroy');
 
 Route::resource('bibliotecario', 'bibliotecarioController')->names('bibliotecario');
 
@@ -37,19 +40,10 @@ Route::resource('editorial', 'editorialController')->names('editorial');
 
 Route::resource('categoria', 'categorialibroController')->names('categoria');
 
-// Route::get('/autor', 'autorController@index')->name('autor.index');
-// Route::get('/autor/create','autorController@create')->name('autor.create');
-// Route::get('/autor/{autor}/edit','autorController@edit')->name('autor.edit');
-// Route::patch('/autor/{autor}','autorController@update')->name('autor.update');
-// Route::post('/autor/create', 'autorController@store' )->name('autor.store');
-// Route::delete('/autor/{autor}', 'autorController@destroy')->name('autor.destroy');
-
-
-// Route::view('/autor', 'autor')->name('autor');
-// Route::post('/autor', 'autorValidationController@store' );
 
 Route::view('/libro', 'libro')->name('libro');
 Route::post('/libro', 'libroValidationController@store' );
+
 
 Route::get('/usuario', 'personaController@index')->name('persona.index');
 Route::get('/persona/create','personaController@create')->name('persona.create');
