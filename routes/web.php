@@ -18,20 +18,40 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::view('/', 'home')->name('home');
 
-Route::get('/bibliotecario', 'bibliotecarioController@Mostrar')->name('bibliotecario.index');
-Route::get('/bibliotecario/create','bibliotecarioController@create')->name('bibliotecario.create');
-Route::get('/bibliotecario/{bibliotecarioitem}/edit','bibliotecarioController@edit')->name('bibliotecario.edit');
-Route::patch('/bibliotecario/{bibliotecarioitem}','bibliotecarioController@update')->name('bibliotecario.update');
-Route::post('/bibliotecario/create', 'bibliotecarioController@store' )->name('bibliotecario.store');
-Route::delete('/bibliotecario/{bibliotecarioitem}', 'bibliotecarioController@destroy')->name('bibliotecario.destroy');
+// Route::get('/bibliotecario', 'bibliotecarioController@Mostrar')->name('bibliotecario.index');
+// Route::get('/bibliotecario/create','bibliotecarioController@create')->name('bibliotecario.create');
+// Route::get('/bibliotecario/{bibliotecario}/edit','bibliotecarioController@edit')->name('bibliotecario.edit');
+// Route::patch('/bibliotecario/{bibliotecario}','bibliotecarioController@update')->name('bibliotecario.update');
+// Route::post('/bibliotecario/create', 'bibliotecarioController@store' )->name('bibliotecario.store');
+// Route::delete('/bibliotecario/{bibliotecario}', 'bibliotecarioController@destroy')->name('bibliotecario.destroy');
 
-Route::view('/autor', 'autor')->name('autor');
-Route::post('/autor', 'autorValidationController@store' );
+Route::resourceVerbs([
+    'categoria' => 'categorialibro',
+]);
+
+Route::resource('bibliotecario', 'bibliotecarioController')->names('bibliotecario');
+
+Route::resource('autor', 'autorController')->names('autor');
+
+Route::resource('editorial', 'editorialController')->names('editorial');
+
+Route::resource('categoria', 'categorialibroController')->names('categoria');
+
+// Route::get('/autor', 'autorController@index')->name('autor.index');
+// Route::get('/autor/create','autorController@create')->name('autor.create');
+// Route::get('/autor/{autor}/edit','autorController@edit')->name('autor.edit');
+// Route::patch('/autor/{autor}','autorController@update')->name('autor.update');
+// Route::post('/autor/create', 'autorController@store' )->name('autor.store');
+// Route::delete('/autor/{autor}', 'autorController@destroy')->name('autor.destroy');
+
+
+// Route::view('/autor', 'autor')->name('autor');
+// Route::post('/autor', 'autorValidationController@store' );
 
 Route::view('/libro', 'libro')->name('libro');
 Route::post('/libro', 'libroValidationController@store' );
 
-Route::get('/usuario', 'personaController@Mostrar')->name('persona.index');
+Route::get('/usuario', 'personaController@index')->name('persona.index');
 Route::get('/persona/create','personaController@create')->name('persona.create');
 Route::get('/persona/{personaitem}/edit','personaController@edit')->name('persona.edit');
 Route::patch('/persona/{personaitem}','personaController@update')->name('persona.update');
