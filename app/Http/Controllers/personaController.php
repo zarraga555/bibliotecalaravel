@@ -16,7 +16,9 @@ class personaController extends Controller
 
     public function create (){
 
-        return view('persona.create');
+        return view('persona.create', [
+            'personaitem' => new Persona,
+        ]);
     }
 
     public function store (CreatePersonaRequest $request){
