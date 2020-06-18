@@ -18,44 +18,44 @@
 
     <div class="row justify-content-md-center">
         <div class="col-md-6">
-            <form method="POST" action="{{ route('bibliotecario.update', $bibliotecarioitem) }}">
+            <form method="POST" action="{{ route('bibliotecario.update', $bibliotecario) }}">
                 @csrf @method('PATCH')
                 <div class="row">
                     <div class="form-group col">
                         <label for="ci">Numero de CI/DNI</label>
-                        <input type="number" name="ci" class="form-control @error('ci') is-invalid @enderror " value="{{ old('ci', $bibliotecarioitem->ci) }}">
+                        <input type="number" name="ci" class="form-control @error('ci') is-invalid @enderror " value="{{ old('ci', $bibliotecario->ci) }}">
                         {!! $errors->first('ci', '<small>:message</small><br>') !!}
                     </div>
                     <div class="form-group col">
                         <label for="complemento">Complemento</label>
-                        <input type="text" name="complemento" placeholder="OPCIONAL" class="form-control" value="{{ old('complemento', $bibliotecarioitem->complemento) }}">
+                        <input type="text" name="complemento" placeholder="OPCIONAL" class="form-control" value="{{ old('complemento', $bibliotecario->complemento) }}">
                         {!! $errors->first('complemento', '<small>:message</small><br>') !!}
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre Completo</label>
-                    <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{ old('nombre', $bibliotecarioitem->nombre) }}">
+                    <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{ old('nombre', $bibliotecario->nombre) }}">
                     {!! $errors->first('nombre', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" class="form-control @error('direccion') is-invalid @enderror"  value="{{ old('direccion', $bibliotecarioitem->direccion) }}">
+                    <input type="text" name="direccion" class="form-control @error('direccion') is-invalid @enderror"  value="{{ old('direccion', $bibliotecario->direccion) }}">
                     {!! $errors->first('direccion', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="telefono">Telefono</label>
-                    <input type="number" name="telefono" class="form-control @error('telefono') is-invalid @enderror " value="{{ old('telefono', $bibliotecarioitem->telefono) }}">
+                    <input type="number" name="telefono" class="form-control @error('telefono') is-invalid @enderror " value="{{ old('telefono', $bibliotecario->telefono) }}">
                     {!! $errors->first('telefono', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="correo">Correo Electronico</label>
-                    <input type="text" name="correo" class="form-control @error('correo') is-invalid @enderror" value="{{ old('correo', $bibliotecarioitem->correo) }}">
+                    <input type="text" name="correo" class="form-control @error('correo') is-invalid @enderror" value="{{ old('correo', $bibliotecario->correo) }}">
                     {!! $errors->first('correo', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="turno">Turno</label>
                     <select class="form-control @error('turno') is-invalid @enderror" name="turno">
-                        <option value="{{ $bibliotecarioitem->turno }}">{{ $bibliotecarioitem->turno }}</option>
+                        <option value="{{ $bibliotecario->turno }}">{{ $bibliotecario->turno }}</option>
                         <option value="Tiempo Completo">Tiempo Completo</option>
                         <option value="Medio Tiempo Mañana">Medio Tiempo Mañana</option>
                         <option value="Medio Tiempo Tarde">Medio Tiempo Tarde</option>
@@ -64,18 +64,18 @@
                 </div>
                 <div class="form-group">
                     <label for="salario">Salario en Bs</label>
-                    <input type="text" name="salario" class="form-control @error('salario') is-invalid @enderror" value="{{ old('salario', $bibliotecarioitem->salario) }}">
+                    <input type="text" name="salario" class="form-control @error('salario') is-invalid @enderror" value="{{ old('salario', $bibliotecario->salario) }}">
                     {!! $errors->first('salario', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                    <input type="date" name="fechaNacimiento" class="form-control @error('fechaNacimiento') is-invalid @enderror" value="{{ $bibliotecarioitem->fechaNacimiento }}">
+                    <input type="date" name="fechaNacimiento" class="form-control @error('fechaNacimiento') is-invalid @enderror" value="{{ $bibliotecario->fechaNacimiento }}">
                     {!! $errors->first('fechaNacimiento', '<small>:message</small><br>') !!}
                 </div>
                 <div class="form-group">
                     <label for="paisNacimiento">Nacionalidad</label>
                     <select class="form-control @error('paisNacimiento') is-invalid @enderror" name="paisNacimiento">
-                        <option value="{{ $bibliotecarioitem->paisNacimiento }}">{{ $bibliotecarioitem->paisNacimiento }}</option>
+                        <option value="{{ $bibliotecario->paisNacimiento }}">{{ $bibliotecario->paisNacimiento }}</option>
                         <option value="Afganistán">Afganistán</option>
                         <option value="Albania">Albania</option>
                         <option value="Alemania">Alemania</option>
