@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 
 class bibliotecarioController extends Controller
 {
-    public function Mostrar (){
+    public function index (){
         $bibliotecario = Bibliotecario::paginate(8);
         return view('bibliotecario', compact('bibliotecario'));
     }
 
     public function create (){
-        return view('bibliotecario.create');
+        return view('bibliotecario.create', [
+            'bibliotecario' => new Bibliotecario,
+        ]);
     }
     public function store (BibliotecarioRequest $request){
         Bibliotecario::create([
@@ -33,14 +35,14 @@ class bibliotecarioController extends Controller
         return redirect()->route('bibliotecario.index');
     }
 
-    public function edit (Bibliotecario $bibliotecarioitem){
+    public function edit (Bibliotecario $bibliotecario){
         return view('bibliotecario.edit', [
-            'bibliotecarioitem' => $bibliotecarioitem,
+            'bibliotecario' => $bibliotecario,
         ] );
     }
 
-    public function update(Bibliotecario $bibliotecarioitem, BibliotecarioRequest $request){
-        $bibliotecarioitem->update([
+    public function update(Bibliotecario $bibliotecario, BibliotecarioRequest $request){
+        $bibliotecario->update([
             'ci' => request('ci'),
             'complemento' => request('complemento'),
             'nombre' => request('nombre'),
@@ -56,8 +58,8 @@ class bibliotecarioController extends Controller
         return redirect()->route('bibliotecario.index');
     }
 
-    public function destroy(Bibliotecario $bibliotecarioitem){
-        $bibliotecarioitem->delete();
+    public function destroy(Bibliotecario $bibliotecario){
+        $bibliotecario->delete();
         return redirect()->route('bibliotecario.index');
     }
 }
