@@ -54,6 +54,7 @@ Clientes
                 @endforelse
         </tbody>
     </table>
+    {{ $persona->links() }}
 </div>
 
 
