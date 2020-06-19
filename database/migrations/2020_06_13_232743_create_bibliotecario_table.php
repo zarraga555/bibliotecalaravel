@@ -25,6 +25,7 @@ class CreateBibliotecarioTable extends Migration
             $table->double('salario');
             $table->date('fechaNacimiento');
             $table->string('paisNacimiento');
+            $table->string('sexo');
             $table->timestamps();
         });
     }
