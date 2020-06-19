@@ -13,6 +13,12 @@ class bibliotecarioController extends Controller
         return view('bibliotecario', compact('bibliotecario'));
     }
 
+    public function show(Bibliotecario $bibliotecario){
+        return view('bibliotecario.show', [
+            'bibliotecario' => $bibliotecario
+        ]);
+    }
+
     public function create (){
         return view('bibliotecario.create', [
             'bibliotecario' => new Bibliotecario,
