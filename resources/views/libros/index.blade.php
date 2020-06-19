@@ -4,10 +4,22 @@
 
 @section('formulario')
 <div class="container">
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <h1 class="display-4 text-primary">Encuentra los libros que necesitas</h1>
+            <p class="lead text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, corrupti alias! Dolorem iste quis ex cumque maiores, sequi natus quidem! Tempora quod eligendi officia libero doloremque cum, porro vitae ex!</p>
+        </div>
+        <div class="col 12 col-lg-6">
+            <img class="img-fluid mb-4" src="/img/book.svg" alt="">
+        </div>
+    </div>
+
+
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 style="align-items: center">Libros</h1>
         <!-- Boton para crear .... autentificar-->
-        <h2><u><a class="btn btn-primary mb-0" href="{{route('libros.create') }}"> 
+        <h2><u><a class="btn btn-primary mb-0" href="{{route('libros.create') }}">
             Crear Nuevo Libro
         </a></u></h2>
 
@@ -48,7 +60,7 @@
         </p>
 @endforelse
 {{$libros->links()}}
-     
+
 </div>
 
 
