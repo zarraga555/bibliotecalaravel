@@ -44,7 +44,8 @@ Route::resource('categoria', 'categorialibroController')->names('categoria');
 
 
 Route::view('/libro', 'libro')->name('libro');
-Route::post('/libro', 'libroValidationController@store' );
+//Route::post('/libro', 'libroValidationController@store' );
+Route::post('/libro', 'libroController@index' )->name('libro.store');
 
 
 Route::get('/usuario', 'personaController@index')->name('persona.index');

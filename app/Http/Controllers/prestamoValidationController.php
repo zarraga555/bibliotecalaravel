@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Prestamo;
+use App\Libro;
+use App\Persona;
+use App\User;
 
 class prestamoValidationController extends Controller
 {
