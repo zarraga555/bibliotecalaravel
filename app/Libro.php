@@ -10,11 +10,11 @@ class Libro extends Model
     protected $fillable = ['codigoLibro','nombre','ideditorial','paginas','fecha_lanzamiento','idAutor','idCategoriaLibro'];
     protected $table = 'libro';
     protected $primaryKey = 'id';
-    public function scopeName($query,$name)
+    public function scopeName($query,$nombre)
     {
-        if(trim($name)!="")
+        if(trim($nombre)!="")
         {
-            $query->where(DB::raw("LIKE","%$name%"));
+            $query->where(DB::raw("LIKE","%$nombre%"));
         }
     }
 }

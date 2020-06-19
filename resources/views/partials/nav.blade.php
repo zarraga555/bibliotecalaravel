@@ -43,7 +43,7 @@
                 <li class=" nav-item dropdown "><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Libros </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item {{ setActive('libro') }}" href="/libro">Libros
+                        <a class="dropdown-item {{ setActive('libro') }}" href="{{route('libros.index')}}">Libros
                             Registrados</a>
                         <a class="dropdown-item {{ setActive('autor') }}"" href=" /autor">Autores</a>
                         <a class="dropdown-item {{ setActive('categoria') }}"
