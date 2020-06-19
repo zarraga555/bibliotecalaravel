@@ -36,6 +36,8 @@ Route::resource('bibliotecario', 'bibliotecarioController')->names('bibliotecari
 
 Route::resource('autor', 'autorController')->names('autor');
 
+Route::get('listAutor', 'autorController@listAutor');
+
 Route::resource('editorial', 'editorialController')->names('editorial');
 
 Route::resource('categoria', 'categorialibroController')->names('categoria');
