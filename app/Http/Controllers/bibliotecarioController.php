@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class bibliotecarioController extends Controller
 {
+    public function __contruct(){
+        $this->middleware('auth')->only('index', 'show', 'create', 'store', 'edit', 'update', 'destroy');
+    }
+
     public function index (){
         $bibliotecario = Bibliotecario::paginate(8);
         return view('bibliotecario', compact('bibliotecario'));
