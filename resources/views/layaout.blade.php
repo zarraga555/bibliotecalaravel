@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <style>
         a{
             text-decoration: none;
@@ -22,22 +23,43 @@
             padding: 5px;
 
         }
-        .btn{
+        .btnTable{
             padding: 2.5px 2.5px;
         }
         table{
             font-size: 0.82rem;
         }
+        .h-screen{
+            height: 100vh;
+        }
+        @media (min-width: 768px) {
+            .navbar{
+            height: 80px;
+            }
+            .btn-block{
+                display: inline-block;
+                width: auto;
+                margin-top: 0rem;
+            }
+            .btn-block+.btn-block {
+                margin-top: 0rem;
+                }
+        }
     </style>
 </head>
 <body>
-    @include('partials.nav')
-    <div class="container" style="padding-top: 15px;" >
-        <div class="">
+    <div id="app" class="d-flex flex-column h-screen justify-content-between">
+        <header>
+            @include('partials.nav')
+        </header>
+        <main>
             @yield('formulario')
-        </div>
-        @yield('content')
+            @yield('content')
+        </main>
+        <footer class="bg-white text-center text-black-50 py-3 shadow">
+            {{config('app.name')}} | Copyright @ {{date('Y')}}
+        </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 </body>
 </html>
