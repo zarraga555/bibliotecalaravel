@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,3 +68,7 @@ Route::post('/prestamo', 'prestamoValidationController@store' );
 
 /* INSERT INTO persona (ci, nombre, direccion, telefono, correo, fechaNacimiento, paisNacimiento)
 VALUES (12648902, 'Juan Alberto Zarraga Torrico', 'Av Segunda Circunvalacion #0260', 76917812, 'zarraga555@gmail.com', '1996-11-15', 'Argentina'); */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
