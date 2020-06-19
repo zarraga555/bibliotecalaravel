@@ -47,7 +47,7 @@ Bibliotecarios
                             <td>{{ $bibliotecarioitem->turno }}</td>
                             <td>{{ $bibliotecarioitem->salario }}</td>
                             <td>
-                                <a href="" class="btn btn-info"" title="Ver"><span class="material-icons">visibility</span></a>
+                                <a href=" {{ route('bibliotecario.show', $bibliotecarioitem) }} " class="btn btn-info"" title="Ver"><span class="material-icons">visibility</span></a>
                                 <a href="{{ route('bibliotecario.edit', $bibliotecarioitem) }}" class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
                                 <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                             </td>
