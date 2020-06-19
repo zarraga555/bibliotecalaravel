@@ -29,13 +29,14 @@
                                 <label for="autor_id">Autor</label>
                                 <select class="custom-select d-block w-100" id="autor_id" name="autor_id"
                                  required>
+                                 <div class="invalid-feedback">
+                                    Seleccione un autor.
+                                </div>
                                  @foreach ($autor as $autorItem)
                                     <option value="{{$autorItem->id}}"> {{$autorItem->nombre}} </option>
                                  @endforeach
                                 </select>
-                                <div class="invalid-feedback">
-                                    Seleccione un autor.
-                                </div>
+                               
                             </div>
                         </div>
 
@@ -56,16 +57,18 @@
                         <label for="categoria_libro_id">Categoria</label>
                         <select class="custom-select d-block w-100" id="categoria_libro_id" name="categoria_libro_id"
                          required>
+                         <div class="invalid-feedback">
+                            Seleccione una categoria.
+                        </div>
                          @foreach ($categoria as $categoriaItem)
                             <option value="{{$categoriaItem->id}}"> {{$categoriaItem->nombre}} </option>
                          @endforeach
                         </select>
-                        <div class="invalid-feedback">
-                            Seleccione una categoria.
-                        </div>
+                        
                     </div>
                 </div>
                 <hr class="mb-4">
+                <button class="btn btn-primary">Enviar</button>     
                 <a class="btn btn-link btn-block" href="{{route('libros.index')}}">
                     Cancelar
                 </a>

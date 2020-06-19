@@ -1,3 +1,4 @@
+<form class="class="table table-responsive table">
 @csrf
 <div class="container">
     <div class="row">
@@ -88,3 +89,4 @@
         </div>
     </div>
 </div>
+</form>
