@@ -33,30 +33,34 @@
                 {{-- autoload, de ahi nos dirigimos a nuestra terminal y escribimos este comando --}}
                 {{-- composer dumpautoload y regarga el navegador --}}
                 <li class=" nav-item {{ setActive('home') }}"><a href="/" class="nav-link"> Inicio</a></li>
+                @auth
                 <li class=" nav-item {{ setActive('bibliotecario') }}"><a href="/bibliotecario"class="nav-link"> Bibliotecarios </a></li>
-                {{-- <li class=" nav-item {{ setActive('autor') }}"><a
-                    href="/autor" class="nav-link"> Autores </a></li>
-                <li class=" nav-item {{ setActive('categoria') }}"><a href="/categoria"
-                        class="nav-link"> Categoria Libro </a></li>
-                <li class=" nav-item {{ setActive('editorial') }}"><a href="/editorial"
-                        class="nav-link"> Editorial </a></li> --}}
+                <li class=" nav-item {{ setActive('usuario') }}"><a href="/usuario" class="nav-link"> Clientes </a></li>
+                @else
                 <li class=" nav-item dropdown "><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Libros </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item {{ setActive('libro') }}" href="{{route('libros.index')}}">Libros
-                            Registrados</a>
-                        <a class="dropdown-item {{ setActive('autor') }}"" href=" /autor">Autores</a>
-                        <a class="dropdown-item {{ setActive('categoria') }}"
-                            href="/categoria">Categorias</a>
-                        <a class="dropdown-item {{ setActive('editorial') }}"
-                            href="/editorial">Editoriales</a>
-                    </div>
-                </li>
-                <li class=" nav-item {{ setActive('usuario') }}"><a href="/usuario" class="nav-link">
-                        Clientes </a></li>
-                <li class=" nav-item {{ setActive('prestamo') }}"><a href="/prestamo"
-                        class="nav-link"> Prestamos </a></li>
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Libros </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item {{ setActive('libro') }}" href="{{route('libros.index')}}">Libros
+                        Registrados</a>
+                    <a class="dropdown-item {{ setActive('autor') }}"" href=" /autor">Autores</a>
+                    <a class="dropdown-item {{ setActive('categoria') }}"
+                        href="/categoria">Categorias</a>
+                    <a class="dropdown-item {{ setActive('editorial') }}"
+                        href="/editorial">Editoriales</a>
+                </div>
+            </li>
+            <li class=" nav-item {{ setActive('prestamo') }}"><a href="/prestamo" class="nav-link"> Prestamos </a></li>
+            <li class=" nav-item {{ setActive('contacto') }}"><a href="/contacto" class="nav-link"> Contacto </a></li>
+                @endauth
+                @guest
+                <li class=" nav-item {{ setActive('login') }}"><a href="/login" class="nav-link"> Iniciar Sesion </a></li>
+                @else
+                <li class=" nav-item {{ setActive('logout') }}"><a href="" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Session</a></li>
+                @endguest
             </ul>
         </div>
     </div>
 </nav>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>

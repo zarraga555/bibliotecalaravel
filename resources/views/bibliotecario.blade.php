@@ -6,7 +6,7 @@ Bibliotecarios
 @section('formulario')
 
 <div class="container py-5">
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12 col-lg-6">
             <h1 class="display-4 text-primary">Biblioteca</h1>
             <p class="lead text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, corrupti alias! Dolorem iste quis ex cumque maiores, sequi natus quidem! Tempora quod eligendi officia libero doloremque cum, porro vitae ex!</p>
@@ -16,7 +16,7 @@ Bibliotecarios
         <div class="col 12 col-lg-6">
             <img class="img-fluid mb-4" src="/img/biblioteca.svg" alt="">
         </div>
-    </div>
+    </div> --}}
 
     <div class="col-12">
         <h1>@lang('Bibliotecarios')</h1><br>

@@ -63,13 +63,14 @@ Route::patch('/persona/{personaitem}','personaController@update')->name('persona
 Route::post('/persona/create', 'personaController@store' )->name('persona.store');
 Route::delete('/persona/{personaitem}', 'personaController@destroy')->name('persona.destroy');
 
+Route::resource('prestamo', 'prestamoController');
 
-Route::view('/prestamo', 'prestamo')->name('prestamo');
-Route::post('/prestamo', 'prestamoValidationController@store' );
+// Route::view('/prestamo', 'prestamo')->name('prestamo');
+// Route::post('/prestamo', 'prestamoValidationController@store' );
 
 /* INSERT INTO persona (ci, nombre, direccion, telefono, correo, fechaNacimiento, paisNacimiento)
 VALUES (12648902, 'Juan Alberto Zarraga Torrico', 'Av Segunda Circunvalacion #0260', 76917812, 'zarraga555@gmail.com', '1996-11-15', 'Argentina'); */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
