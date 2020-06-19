@@ -22,7 +22,8 @@
                 <th scope="col">Autor</th>
                 <th scope="col">Num. paginas</th>
                 <th scope="col">Categoria</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Acciones
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,7 @@
                 <td>{{ $portItem->paginas }}</td>
                 <td>{{ $portItem->idEditorial }}</td>
                 <td>{{ $portItem->idAutor }}</td>
-                <td>{{ $portItem->paginas }}</td>
+                <td>{{ $portItem->fecha_lanzamiento }}</td>
                 <td>{{ $portItem->idCategoriaLibro}}</td>
             
                 <td>

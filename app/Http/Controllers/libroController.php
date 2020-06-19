@@ -57,4 +57,10 @@ class libroController extends Controller
         $libros->update(request()->all());
         return redirect()->route('libros.show');
     }
+    public function destroy(Libro $libros)
+    {
+        $libros->delete();
+        
+        return redirect()->route('libros.index');
+    }
 }

@@ -1,3 +1,4 @@
+@extends('layaout')
 <form method="POST" action="{{ route('libros.store') }}">
     @csrf
     <div class="mb-3">
