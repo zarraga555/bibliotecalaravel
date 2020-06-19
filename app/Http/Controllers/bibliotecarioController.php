@@ -30,6 +30,7 @@ class bibliotecarioController extends Controller
             'salario' => request('salario'),
             'fechaNacimiento' => request('fechaNacimiento'),
             'paisNacimiento' => request('paisNacimiento'),
+            'sexo' => request('sexo'),
             $request->validated()
         ]);
         return redirect()->route('bibliotecario.index');
@@ -53,6 +54,7 @@ class bibliotecarioController extends Controller
             'salario' => request('salario'),
             'fechaNacimiento' => request('fechaNacimiento'),
             'paisNacimiento' => request('paisNacimiento'),
+            'sexo' => request('sexo'),
             $request->validated()
         ]);
         return redirect()->route('bibliotecario.index');
