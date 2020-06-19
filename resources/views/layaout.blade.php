@@ -26,9 +26,25 @@
         .btnTable{
             padding: 2.5px 2.5px;
         }
-        table{
+        /* table{
             font-size: 0.82rem;
-        }
+            margin: auto;
+        } */
+        table{
+   position:relative;
+   margin:auto;
+   width:100%;
+   /*left:-15%*/;
+}
+        .wrapper {
+  display: flex;
+  position: relative;
+}
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
         .h-screen{
             height: 100vh;
         }
@@ -45,6 +61,7 @@
                 margin-top: 0rem;
                 }
         }
+
     </style>
 </head>
 <body>
