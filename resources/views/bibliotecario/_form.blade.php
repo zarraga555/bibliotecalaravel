@@ -34,7 +34,7 @@
 <div class="form-group">
     <label for="turno">Turno</label>
     <select class="form-control @error('turno') is-invalid @enderror" name="turno">
-        <option value="{{ $bibliotecario->turno }}">{{ $bibliotecario->turno }}</option>
+        <option value="{{ $bibliotecario->turno }}">{{ $bibliotecario->turno ?? 'Selecciona una opcion'}}</option>
         <option value="Tiempo Completo">Tiempo Completo</option>
         <option value="Medio Tiempo Mañana">Medio Tiempo Mañana</option>
         <option value="Medio Tiempo Tarde">Medio Tiempo Tarde</option>
@@ -54,7 +54,7 @@
 <div class="form-group">
     <label for="paisNacimiento">Nacionalidad</label>
     <select class="form-control @error('paisNacimiento') is-invalid @enderror" name="paisNacimiento">
-        <option value="{{ $bibliotecario->paisNacimiento }}">{{ $bibliotecario->paisNacimiento }}</option>
+        <option value="{{ $bibliotecario->paisNacimiento }}">{{ $bibliotecario->paisNacimiento ?? 'Selecciona una opcion'}}</option>
         <option value="Afganistán">Afganistán</option>
         <option value="Albania">Albania</option>
         <option value="Alemania">Alemania</option>
@@ -294,5 +294,14 @@
         <option value="Zimbabue" id="ZW">Zimbabue</option>
     </select>
     {!! $errors->first('paisNacimiento', '<small>:message</small><br>') !!}
+</div>
+<div class="form-group">
+    <label for="sexo">Sexo</label>
+    <select class="form-control @error('sexo') is-invalid @enderror" name="sexo">
+        <option value="{{ $bibliotecario->sexo }}">{{ ($bibliotecario->sexo) ?? 'Selecciona una opcion'}}</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+    </select>
+    {!! $errors->first('sexo', '<small>:message</small><br>') !!}
 </div>
 <button class="btn btn-primary">{{$btnText}}</button>

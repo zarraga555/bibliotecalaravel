@@ -13,6 +13,12 @@ class bibliotecarioController extends Controller
         return view('bibliotecario', compact('bibliotecario'));
     }
 
+    public function show(Bibliotecario $bibliotecario){
+        return view('bibliotecario.show', [
+            'bibliotecario' => $bibliotecario
+        ]);
+    }
+
     public function create (){
         return view('bibliotecario.create', [
             'bibliotecario' => new Bibliotecario,
@@ -30,6 +36,7 @@ class bibliotecarioController extends Controller
             'salario' => request('salario'),
             'fechaNacimiento' => request('fechaNacimiento'),
             'paisNacimiento' => request('paisNacimiento'),
+            'sexo' => request('sexo'),
             $request->validated()
         ]);
         return redirect()->route('bibliotecario.index');
@@ -53,6 +60,7 @@ class bibliotecarioController extends Controller
             'salario' => request('salario'),
             'fechaNacimiento' => request('fechaNacimiento'),
             'paisNacimiento' => request('paisNacimiento'),
+            'sexo' => request('sexo'),
             $request->validated()
         ]);
         return redirect()->route('bibliotecario.index');
