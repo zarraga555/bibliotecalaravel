@@ -34,7 +34,7 @@
 <div class="form-group">
     <label for="turno">Turno</label>
     <select class="form-control @error('turno') is-invalid @enderror" name="turno">
-        <option value="{{ $bibliotecario->turno }}">{{ $bibliotecario->turno ?? 'Selecciona una opcion' }}</option>
+        <option value="{{ $bibliotecario->turno }}">{{ $bibliotecario->turno ?? 'Selecciona una opcion'}}</option>
         <option value="Tiempo Completo">Tiempo Completo</option>
         <option value="Medio Tiempo Mañana">Medio Tiempo Mañana</option>
         <option value="Medio Tiempo Tarde">Medio Tiempo Tarde</option>
@@ -296,12 +296,12 @@
     {!! $errors->first('paisNacimiento', '<small>:message</small><br>') !!}
 </div>
 <div class="form-group">
-    <label for="turno">Sexo</label>
-    <select class="form-control @error('turno') is-invalid @enderror" name="turno">
-        <option value="{{ $bibliotecario->sexo }}">{{ ($bibliotecario->sexo ?? 'Selecciona una opcion') }}</option>
-        <option value="Tiempo Completo">Femenino</option>
-        <option value="Medio Tiempo Mañana">Masculino</option>
+    <label for="sexo">Sexo</label>
+    <select class="form-control @error('sexo') is-invalid @enderror" name="sexo">
+        <option value="{{ $bibliotecario->sexo }}">{{ ($bibliotecario->sexo) ?? 'Selecciona una opcion'}}</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
     </select>
-    {!! $errors->first('turno', '<small>:message</small><br>') !!}
+    {!! $errors->first('sexo', '<small>:message</small><br>') !!}
 </div>
 <button class="btn btn-primary">{{$btnText}}</button>
