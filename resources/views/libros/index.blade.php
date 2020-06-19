@@ -19,9 +19,11 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 style="align-items: center">Libros</h1>
         <!-- Boton para crear .... autentificar-->
+        @auth
         <h2><u><a class="btn btn-primary mb-0" href="{{route('libros.create') }}">
             Crear Nuevo Libro
         </a></u></h2>
+        @endauth
 
     </div>
     <table class="table table-striped table-dark ">
@@ -48,7 +50,7 @@
                 <td>{{ $portItem->idAutor }}</td>
                 <td>{{ $portItem->fecha_lanzamiento }}</td>
                 <td>{{ $portItem->idCategoriaLibro}}</td>
-            
+
                 <td>
                 <a href="{{ route('libros.edit', $portItem) }}"
                     class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
