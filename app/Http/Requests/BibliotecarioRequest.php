@@ -33,6 +33,7 @@ class BibliotecarioRequest extends FormRequest
             'salario' => 'required',
             'fechaNacimiento' => 'required',
             'paisNacimiento' => 'required',
+            'sexo' => 'required',
         ];
     }
     public function messages()
@@ -47,6 +48,7 @@ class BibliotecarioRequest extends FormRequest
             'salario.required' => 'Necesito el salario del bibliotecario',
             'fechaNacimiento.required' => 'Necesito la fecha de nacimiento',
             'paisNacimiento.required' => 'Necesito la nacionalidad',
+            'sexo.required' => 'Necesito el sexo',
         ];
     }
 }
