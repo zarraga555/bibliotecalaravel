@@ -33,27 +33,28 @@ class libroController extends Controller
         ], compact('editorial', 'autor', 'categoria'));
     }
     public function store(){
-        $editorial = Editorial::all();
+        /*$editorial = Editorial::all();
         $autor = Autor::all();
-        $categoria = Categorialibro::all();
+        $categoria = Categorialibro::all();*/
         Libro:: create([
             'codigoLibro' => request('codigoLibro'),
-            'nombre' => request('nombre'),
-            'idEditorial' => request('idEditorial'),
+            'nombre' => request('nombres'),
             'paginas' => request('paginas'),
-            'autor' => request('autor'),
-            'idCategoria' => request('idCategoria')
+            'fecha_lanzamiento' => request('fecha'),
+            'idAutor' => request('autor'),
+            'ideditorial' => request('editorial'),            
+            'idCategoriaLibro' => request('categoria_libro_id')
         ]);
-        return redirect()->route('libros.index', compact('editorial', 'autor', 'categoria'));
+        return redirect()->route('libros.index');
     }
-    public function edit(){
+    public function edit($libros){
         $editorial = Editorial::all();
         $autor = Autor::all();
         $categoria = Categorialibro::all();
-        return redirect()->route('libros', compact('editorial', 'autor', 'categoria'));
+        return redirect()->route('libros.edit', compact('editorial', 'autor', 'categoria', 'libros'));
     }
-    public function update(){
-        $libro->update(request()->all());
-        return redirect()->route('libros.show', $libro);
+    public function update(Libro $libros){
+        $libros->update(request()->all());
+        return redirect()->route('libros.show');
     }
 }

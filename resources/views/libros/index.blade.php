@@ -22,23 +22,26 @@
                 <th scope="col">Autor</th>
                 <th scope="col">Num. paginas</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($libros as $portItem)
             <tr>
                 <th scope="row">{{ $portItem->codigoLibro }}</th>
-                <td>
-                    <a href="{{ route('libros.edit', $portItem) }}"
-                        class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
-                <a href="#"
-                        class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
-                </td>
                 <td>{{ $portItem->nombre }}</td>
                 <td>{{ $portItem->paginas }}</td>
                 <td>{{ $portItem->idEditorial }}</td>
                 <td>{{ $portItem->idAutor }}</td>
+                <td>{{ $portItem->paginas }}</td>
                 <td>{{ $portItem->idCategoriaLibro}}</td>
+            
+                <td>
+                <a href="{{ route('libros.edit', $portItem) }}"
+                    class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
+                <a href="#"
+                    class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                </td>
             </tr>
             @empty
             </tbody>
