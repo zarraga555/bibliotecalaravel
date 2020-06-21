@@ -62,6 +62,10 @@
         .btn-block+.btn-block {
             margin-top: 0rem;
         }
+        #divTable{
+            position: relative;
+            margin: auto;
+        }
         #list-Autor{
             position: relative;
             margin: auto;
