@@ -45,6 +45,8 @@ Route::get('listEditorial', 'editorialController@listEditorial');
 
 Route::resource('categoria', 'categorialibroController')->names('categoria');
 
+Route::get('listCategoria', 'categorialibroController@listCategoria');
+
 
 
 //Route::post('/libro', 'libroValidationController@store' );
