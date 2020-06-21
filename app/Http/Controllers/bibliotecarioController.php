@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class bibliotecarioController extends Controller
 {
-    public function __contruct(){
+    public function __construct(){
         $this->middleware('auth')->only('index', 'show', 'create', 'store', 'edit', 'update', 'destroy');
     }
 
