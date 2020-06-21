@@ -41,6 +41,8 @@ Route::get('listAutor', 'autorController@listAutor');
 
 Route::resource('editorial', 'editorialController')->names('editorial');
 
+Route::get('listEditorial', 'editorialController@listEditorial');
+
 Route::resource('categoria', 'categorialibroController')->names('categoria');
 
 
