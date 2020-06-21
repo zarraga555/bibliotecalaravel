@@ -62,7 +62,7 @@
         .btn-block+.btn-block {
             margin-top: 0rem;
         }
-        #divTable{
+        .divTable{
             position: relative;
             margin: auto;
         }
