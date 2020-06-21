@@ -72,8 +72,33 @@ class autorController extends Controller
         }
     }
 
-    public function destroy(Autor $autor){
-        $autor->delete();
-        return redirect()->route('autor.index');
+    public function destroy($id){
+        $autor = Autor::FindOrFail($id);
+        $result = $autor->delete();
+        if($result){
+            return response()->json(['success' => 'true']);
+        }else{
+            return response()->json(['success' => 'false']);
+        }
+        // $autor->delete();
+        // return redirect()->route('autor.index');
     }
 }
+// $('#destroy').click(function () {
+//     var autor = $("#idDelete").val();
+//     var token = $("input[name=_token]").val();
+//     var route = "{{route('autor.destroy')}}/"+autor+"";
+//     $.ajax({
+//         url: route,
+//         headers: { 'X-CSRF-TOKEN': token },
+//         type: 'DELETE',
+//         dataType: 'json',
+//         success: function (data) {
+//             if (data.success == "true") {
+//                 listAutor();
+//                 $('#CreateModal .close').click();
+//                 $('#message-destroy').fadeIn();
+//             }
+//         }
+//     });
+// });
