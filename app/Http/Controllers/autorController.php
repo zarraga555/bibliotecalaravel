@@ -84,21 +84,3 @@ class autorController extends Controller
         // return redirect()->route('autor.index');
     }
 }
-// $('#destroy').click(function () {
-//     var autor = $("#idDelete").val();
-//     var token = $("input[name=_token]").val();
-//     var route = "{{route('autor.destroy')}}/"+autor+"";
-//     $.ajax({
-//         url: route,
-//         headers: { 'X-CSRF-TOKEN': token },
-//         type: 'DELETE',
-//         dataType: 'json',
-//         success: function (data) {
-//             if (data.success == "true") {
-//                 listAutor();
-//                 $('#CreateModal .close').click();
-//                 $('#message-destroy').fadeIn();
-//             }
-//         }
-//     });
-// });
