@@ -24,9 +24,7 @@
     </div>
 
     <div class="panel-body">
-        <div id="list-Editorial" class="divTable">
-
-        </div>
+        <div id="list-Editorial" class="divTable"></div>
     </div>
 </div>
 
