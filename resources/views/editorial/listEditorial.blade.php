@@ -24,4 +24,4 @@
     </tbody>
 </table>
 
-{{-- {{ $editorial->links() }} --}}
+{{ $editorial->links() }}
