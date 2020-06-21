@@ -9,13 +9,14 @@
                 </button>
             </div>
             <form>
-
+                @csrf
+                <input type="hidden" id="idDelete" name="idDelete" value="">
                 <div class="modal-body">
-                    ¿Estas seguro que deseas elimar al Autor?
+                    ¿Estas seguro que deseas eliminar al Autor?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger btn-danger">Eliminar</button>
+                    <button type="button" id="delete" class="btn btn-danger btn-danger">Eliminar</button>
                 </div>
             </form>
 

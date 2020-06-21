@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- MODAL DE AGREGADO -->
 <div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form >
+                <form id="FormCreate">
                     {{-- method="POST" action="{{ route('autor.store') }}" --}}
                     @csrf
                     <div class="form-group">
@@ -273,3 +273,4 @@
         </div>
     </div>
 </div>
+{{-- FINAL DEL MODAL DE ELIMINADOD --}}

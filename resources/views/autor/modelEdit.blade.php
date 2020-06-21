@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- MODAL DE EDITADO-->
 <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="EditModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -274,7 +274,4 @@
         </div>
     </div>
 </div>
-<script>
-
-
-</script>
+{{-- FINAL DEL MODAL DE EDITADO --}}
