@@ -7,12 +7,8 @@ Autores
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 style="align-items: center">Autores</h1>
         @auth
-            <h2><u><a href="#" class="btn btn-primary" class="btn btn-primary" data-toggle="modal"
-                        data-target="#CreateModal">
-                        Crear Nuevo Autor
-                    </a></u></h2>
+            <h2><u><a href="#" class="btn btn-primary" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Crear Nuevo Autor</a></u></h2>
         @endauth
-
     </div>
 
     <div id="message-store" class="alert alert-success alert-dismissible" role="alert" style="display:none">
@@ -33,9 +29,6 @@ Autores
 @include('autor.modalCreate')
 @include('autor.modelEdit')
 @include('autor.modalDelete')
-
-
-
 
 <script>
     //-----------------------------------------------------
