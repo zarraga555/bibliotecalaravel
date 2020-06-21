@@ -17,21 +17,35 @@
     @endif--}}
 </div>
 
+<div id="message-store" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+    <strong>Se ha agregado correctamente</strong>
+</div>
 <div id="message-update" class="alert alert-success alert-dismissible" role="alert" style="display:none">
     <strong>Se ha actuzlizado correctamente</strong>
+</div>
+<div id="message-destroy" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
+    <strong>Se ha borrado el actor</strong>
 </div>
 
 <div class="panel-body">
     <div id="list-Autor"></div>
     {{-- {{ bibliotecario->links() }} --}}
 </div>
-@include('autor.modelEdit')
 @include('autor.modalCreate')
+@include('autor.modelEdit')
+@include('autor.modalDelete')
 
 
 
 
 <script>
+//-----------------------------------------------------
+//-----------------LIMPIADO DE LOS INPUTS--------------
+//-----------------------------------------------------
+
+function limpiarFormulario() {
+    document.getElementById("FormCreate").reset();
+}
 
 //-----------------------------------------------------
 //-------------MOSTRAR DATOS EN UNA TABLA--------------
@@ -87,6 +101,7 @@ $("#actualizar").click(function(){
                 $('#EditModal .close').click();
                 // alert("Agregado con exito");
                 $('#message-update').fadeIn();
+                $('#message-update').show().delay(3000).fadeOut(1);
             }
         },
         error:function(data){
@@ -116,18 +131,46 @@ $('#enviar').click(function(){
         success:function(data){
             if(data.success == "true"){
                 listAutor();
+                limpiarFormulario();
                 $('#CreateModal .close').click();
-                $('#message-update').fadeIn();
+                $('#message-store').fadeIn();
+                $('#message-store').show().delay(3000).fadeOut(1);
             }
         }
     });
 });
 
 //-----------------------------------------------------
-//---------------------ELIMINAR-------------------------
+//---------------------ELIMINAR------------------------
 //-----------------------------------------------------
 var Eliminar = function(autor){
-alert(autor);
+    var route = "{{ url('autor') }}/"+autor+"/edit";
+    $.get(route, function(data){
+            $("#idDelete").val(data.id);
+        });
 }
+
+//-----------------------------------------------------
+//---------------------DESTROY-------------------------
+//-----------------------------------------------------
+$('#delete').click(function () {
+        var autor = $("#idDelete").val();
+        var token = $("input[name=_token]").val();
+        var route = "{{URL('autor')}}/"+autor;
+        $.ajax({
+            url: route,
+            headers: { 'X-CSRF-TOKEN': token },
+            type: 'DELETE',
+            success: function (data) {
+                if (data.success == "true") {
+                    listAutor();
+                    $('#exampleModalCenter .close').click();
+                    $('#message-destroy').fadeIn();
+                    $('#message-destroy').show().delay(3000).fadeOut(1);
+                }
+            }
+        });
+    });
+
 </script>
 @endsection
