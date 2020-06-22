@@ -6,9 +6,7 @@
             <th scope="col">Nombre Completo</th>
             <th scope="col">Direecion</th>
             <th scope="col">Telefono</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Fecha Nacimiento</th>
-            <th scope="col">Nacionalidad</th>
+
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -20,10 +18,8 @@
                 <td>{{ $personaitem->nombre }}</td>
                 <td>{{ $personaitem->direccion }}</td>
                 <td>{{ $personaitem->telefono }}</td>
-                <td>{{ $personaitem->correo }}</td>
-                <td>{{ $personaitem->fechaNacimiento }}</td>
-                <td>{{ $personaitem->paisNacimiento }}</td>
                 <td>
+                    <a href="#" onclick="Ver({{$personaitem->id}})" class="btn btn-info"" title="Ver" data-toggle="modal" data-target="#ShowModal"><span class="material-icons">visibility</span></a>
                     <a href="#" onclick='Mostrar({{$personaitem->id}}) ' class="btn btn-success" title="Editar" class="btn btn-primary" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
                     <a href="#" onclick='Eliminar({{$personaitem->id}}) ' class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                 </td>
