@@ -34,6 +34,7 @@ Route::view('/', 'home')->name('home');
 // Route::delete('/autor/{autor}', 'autorController@destroy')->name('autor.destroy');
 
 Route::resource('bibliotecario', 'bibliotecarioController')->names('bibliotecario');
+Route::get('listBibliotecario', 'bibliotecarioController@listBibliotecario');
 
 Route::resource('autor', 'autorController')->names('autor');
 Route::get('listAutor', 'autorController@listAutor');
