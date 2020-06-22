@@ -12,8 +12,8 @@
                 <td>{{ $editorialitem->id }}</td>
                 <td>{{ $editorialitem->nombre }}</td>
                 <td>
-                    <a href="#" onclick="Mostrar({{ $editorialitem->id  }})" class="btn btn-success" title="Editar" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
-                    <a href="#" onclick="Eliminar({{ $editorialitem->id  }})" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                    <a href="#" onclick="Mostrar({{ $editorialitem->id  }})" class="btn btnT btn-success" title="Editar" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
+                    <a href="#" onclick="Eliminar({{ $editorialitem->id  }})" class="btn btnT btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                 </td>
         </tr>
             @empty

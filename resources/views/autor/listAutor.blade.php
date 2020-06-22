@@ -12,8 +12,8 @@
                 <td>{{ $autoritem->nombre }}</td>
                 <td>{{ $autoritem->nacionalidad }}</td>
                 <td>
-                    <a href="#" onclick='Mostrar({{$autoritem->id}}) ' class="btn btn-success" title="Editar" class="btn btn-primary" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
-                    <a href="#" onclick='Eliminar({{$autoritem->id}}) ' class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                    <a href="#" onclick='Mostrar({{$autoritem->id}}) ' class="btn btnT btn-success" title="Editar" class="btn btn-primary" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
+                    <a href="#" onclick='Eliminar({{$autoritem->id}}) ' class="btn btnT btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                 </td>
         </tr>
             @empty

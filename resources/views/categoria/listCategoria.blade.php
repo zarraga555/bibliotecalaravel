@@ -12,8 +12,8 @@
                 <td>{{ $categoriaitem->id }}</td>
                 <td>{{ $categoriaitem->nombre }}</td>
                 <td>
-                    <a href="#" onclick="Mostrar({{ $categoriaitem->id  }})" class="btn btn-success" title="Editar" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
-                    <a href="#" onclick="Eliminar({{ $categoriaitem->id }})" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                    <a href="#" onclick="Mostrar({{ $categoriaitem->id  }})" class="btn btnT btn-success" title="Editar" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
+                    <a href="#" onclick="Eliminar({{ $categoriaitem->id }})" class="btn btnT btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
                 </td>
         </tr>
             @empty
