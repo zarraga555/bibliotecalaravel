@@ -36,15 +36,12 @@ Route::view('/', 'home')->name('home');
 Route::resource('bibliotecario', 'bibliotecarioController')->names('bibliotecario');
 
 Route::resource('autor', 'autorController')->names('autor');
-
 Route::get('listAutor', 'autorController@listAutor');
 
 Route::resource('editorial', 'editorialController')->names('editorial');
-
 Route::get('listEditorial', 'editorialController@listEditorial');
 
 Route::resource('categoria', 'categorialibroController')->names('categoria');
-
 Route::get('listCategoria', 'categorialibroController@listCategoria');
 
 
@@ -60,14 +57,17 @@ Route::get('/libros/{libro}', 'libroController@show' )->name('libros.show');
 Route::delete('/libros/{libro}', 'libroController@destroy' )->name('libros.destroy');
 
 
-Route::get('/usuario', 'personaController@index')->name('persona.index');
-Route::get('/persona/create','personaController@create')->name('persona.create');
-Route::get('/persona/{personaitem}/edit','personaController@edit')->name('persona.edit');
-Route::patch('/persona/{personaitem}','personaController@update')->name('persona.update');
-Route::post('/persona/create', 'personaController@store' )->name('persona.store');
-Route::delete('/persona/{personaitem}', 'personaController@destroy')->name('persona.destroy');
+// Route::get('/usuario', 'personaController@index')->name('persona.index');
+// Route::get('/persona/create','personaController@create')->name('persona.create');
+// Route::get('/persona/{personaitem}/edit','personaController@edit')->name('persona.edit');
+// Route::patch('/persona/{personaitem}','personaController@update')->name('persona.update');
+// Route::post('/persona/create', 'personaController@store' )->name('persona.store');
+// Route::delete('/persona/{personaitem}', 'personaController@destroy')->name('persona.destroy');
+
+Route::resource('persona', 'personaController')->names('persona');
 
 Route::resource('prestamo', 'prestamoController');
+Route::get('listPersona', 'personaController@listPersona');
 
 // Route::view('/prestamo', 'prestamo')->name('prestamo');
 // Route::post('/prestamo', 'prestamoValidationController@store' );
