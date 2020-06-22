@@ -10,7 +10,7 @@
                 <li class=" nav-item {{ setActive('home') }}"><a href="/" class="nav-link"> Inicio</a></li>
                 @auth
                 <li class=" nav-item {{ setActive('bibliotecario') }}"><a href="/bibliotecario"class="nav-link"> Bibliotecarios </a></li>
-                <li class=" nav-item {{ setActive('usuario') }}"><a href="/usuario" class="nav-link"> Clientes </a></li>
+                <li class=" nav-item {{ setActive('persona') }}"><a href="/persona" class="nav-link"> Clientes </a></li>
                 @endauth
                 <li class=" nav-item dropdown "><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Libros </a>
