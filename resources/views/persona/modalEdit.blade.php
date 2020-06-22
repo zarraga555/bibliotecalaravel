@@ -4,14 +4,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Autor</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Persona</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form >
-                    {{-- method="POST" action="{{ route('autor.store') }}" --}}
                     @csrf
                     <input type="hidden" id="idedit" name="id" value="{{ old('id') }}">
                     <div class="row">
@@ -295,8 +294,6 @@
                         </select>
                         {!! $errors->first('paisNacimiento', '<small>:message</small><br>') !!}
                     </div>
-
-                    {{-- <button class="btn btn-primary">Enviar</button> --}}
                 </form>
             </div>
             <div class="modal-footer">
