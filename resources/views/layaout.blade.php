@@ -18,7 +18,9 @@
         a {
             text-decoration: none;
         }
-
+        .btn{
+                height: 38px;
+            }
         .active a {
             color: red;
             text-decoration: none;
@@ -53,35 +55,34 @@
             .navbar{
             height: 80px;
             }
-        .btn-block {
-            display: inline-block;
-            width: auto;
-            margin-top: 0rem;
-        }
-
-        .btn-block+.btn-block {
-            margin-top: 0rem;
-        }
-        .divTable{
-            position: relative;
-            margin: auto;
-        }
-        #list-Autor{
-            position: relative;
-            margin: auto;
-        }
-        table{
-            position: relative;
-            margin: auto;
-            width: 100%;
-            display: inline-table;
-        }
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            display: inline-table;
-        }
+            .btn-block {
+                display: inline-block;
+                width: auto;
+                margin-top: 0rem;
+            }
+            .btn-block+.btn-block {
+                margin-top: 0rem;
+            }
+            .divTable{
+                position: relative;
+                margin: auto;
+            }
+            #list-Autor{
+                position: relative;
+                margin: auto;
+            }
+            table{
+                position: relative;
+                margin: auto;
+                width: 100%;
+                display: inline-table;
+            }
+            .table-responsive {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                display: inline-table;
+            }
         }
     </style>
 </head>
