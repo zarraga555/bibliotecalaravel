@@ -5,7 +5,7 @@ Clientes
 @endsection
 @section('formulario')
 
-<div class="container">
+<div class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 style="align-items: center">Personas Registradas</h1>
         @auth
@@ -23,7 +23,7 @@ Clientes
         <strong>Se ha borrado el correctamente</strong>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body my-5">
         <div id="list-Persona" class="divTable"></div>
     </div>
 
@@ -32,6 +32,7 @@ Clientes
 @include('persona.modalCreate')
 @include('persona.modalEdit')
 @include('persona.modalDelete')
+@include('persona.modalShow')
 
 <script>
     //-----------------------------------------------------
@@ -59,6 +60,25 @@ Clientes
         });
     }
 
+    //-----------------------------------------------------
+    //---------------------SHOW----------------------------
+    //-----------------------------------------------------
+    var Ver = function (persona) {
+        var route = "{{ url('persona') }}/" + persona + "/edit";
+        $.get(route, function (data) {
+            $("#idShow").val(data.id);
+            $("#ciShow").val(data.ci);
+            $("#complemetoShow").val(data.complemento);
+            $("#nombreShow").val(data.nombre);
+            document.getElementById("nombreTShow").innerHTML = "Datos de: "+data.nombre;
+            $("#direccionShow").val(data.direccion);
+            $("#telefonoShow").val(data.telefono);
+            $("#correoShow").val(data.correo);
+            $("#fechaNacimientoShow").val(data.fechaNacimiento);
+            $("#paisNacimientoShow").val(data.paisNacimiento);
+            // $("#sexoShow").val(data.sexo);
+        });
+    }
     //-----------------------------------------------------
     //---------------------EDIT----------------------------
     //-----------------------------------------------------
