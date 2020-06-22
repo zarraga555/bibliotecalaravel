@@ -6,64 +6,237 @@ Bibliotecarios
 @section('formulario')
 
 <div class="container py-5">
-    {{-- <div class="row">
-        <div class="col-12 col-lg-6">
-            <h1 class="display-4 text-primary">Biblioteca</h1>
-            <p class="lead text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, corrupti alias! Dolorem iste quis ex cumque maiores, sequi natus quidem! Tempora quod eligendi officia libero doloremque cum, porro vitae ex!</p>
-            <a class="btn btn-lg btn-block btn-primary" href="{{ route('libro') }}">Libros Disponibles</a>
-            <a class="btn btn-lg btn-block btn-outline-primary" href="{{ route('prestamo') }}">Reserva tu libro</a>
-        </div>
-        <div class="col 12 col-lg-6">
-            <img class="img-fluid mb-4" src="/img/biblioteca.svg" alt="">
-        </div>
-    </div> --}}
-
-    <div class="col-12">
-        <h1>@lang('Bibliotecarios')</h1><br>
-        <a href=" {{ route('bibliotecario.create') }} " class="btn btn-primary">Nuevo Bibliotecario</a>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 style="align-items: center">Bibliotecarios</h1>
+        @auth
+            <h2><u><a href="#" class="btn btn-primary" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Crear Nuevo Bibliotecario</a></u></h2>
+        @endauth
     </div>
 
-    <div class="row my-5 d-flex justify-content-center">
-        <div class="col-12">
-            <table class="table table-responsive table">
-                <thead>
-                    <tr>
-                        <th scope="col">CI</th>
-                        <th scope="col">Compl.</th>
-                        <th scope="col">Nombre Completo</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Turno</th>
-                        <th scope="col">Salario Bs</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        @forelse($bibliotecario as $bibliotecarioitem)
-                            <td>{{ $bibliotecarioitem->ci }}</td>
-                            <td>{{ $bibliotecarioitem->complemento }}</td>
-                            <td>{{ $bibliotecarioitem->nombre }}</td>
-                            <td>{{ $bibliotecarioitem->correo }}</td>
-                            <td>{{ $bibliotecarioitem->turno }}</td>
-                            <td>{{ $bibliotecarioitem->salario }}</td>
-                            <td>
-                                <a href=" {{ route('bibliotecario.show', $bibliotecarioitem) }} " class="btn btn-info"" title="Ver"><span class="material-icons">visibility</span></a>
-                                <a href="{{ route('bibliotecario.edit', $bibliotecarioitem) }}" class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
-                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
-                            </td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="9" class="errortable" align="center">No hay datos disponibles</td>
-                    </tr>
-                    @endforelse
-                </tbody>
-            </table>
-            {{ $bibliotecario->links() }}
-        </div>
+    <div id="message-store" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+        <strong>Se ha agregado correctamente</strong>
     </div>
+    <div id="message-update" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+        <strong>Se ha actuzlizado correctamente</strong>
+    </div>
+    <div id="message-destroy" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
+        <strong>Se ha borrado el correctamente</strong>
+    </div>
+
+    <div class="panel-body my-5">
+        <div id="list-Bibliotecario" class="divTable"></div>
+    </div>
+
 </div>
+@include('bibliotecario.modalCreate')
+@include('bibliotecario.modalEdit')
+@include('bibliotecario.modalDelete')
+@include('bibliotecario.modalShow')
 
-@extends('bibliotecario.delete')
+<script>
+    //-----------------------------------------------------
+    //-----------------LIMPIADO DE LOS INPUTS--------------
+    //-----------------------------------------------------
 
+    function limpiarFormulario() {
+        document.getElementById("FormCreate").reset();
+    }
+
+    //-----------------------------------------------------
+    //-------------MOSTRAR DATOS EN UNA TABLA--------------
+    //-----------------------------------------------------
+
+    $(document).ready(function () {
+        listBibliotecario();
+    });
+    var listBibliotecario = function () {
+        $.ajax({
+            type: 'get',
+            url: '{{ url('listBibliotecario') }}',
+            success: function (data) {
+                $('#list-Bibliotecario').empty().html(data);
+            }
+        });
+    }
+
+    //-----------------------------------------------------
+    //---------------------SHOW----------------------------
+    //-----------------------------------------------------
+    var Ver = function (bibliotecario) {
+        var route = "{{ url('bibliotecario') }}/" + bibliotecario + "/edit";
+        $.get(route, function (data) {
+            $("#idShow").val(data.id);
+            $("#ciShow").val(data.ci);
+            $("#complemetoShow").val(data.complemento);
+            $("#nombreShow").val(data.nombre);
+            document.getElementById("nombreTShow").innerHTML = "Datos de: "+data.nombre;
+            $("#direccionShow").val(data.direccion);
+            $("#telefonoShow").val(data.telefono);
+            $("#correoShow").val(data.correo);
+            $("#turnoShow").val(data.turno);
+            $("#salarioShow").val(data.salario);
+            $("#fechaNacimientoShow").val(data.fechaNacimiento);
+            $("#paisNacimientoShow").val(data.paisNacimiento);
+            $("#sexoShow").val(data.sexo);
+        });
+    }
+    //-----------------------------------------------------
+    //---------------------EDIT----------------------------
+    //-----------------------------------------------------
+    var Mostrar = function (bibliotecario) {
+        var route = "{{ url('bibliotecario') }}/" + bibliotecario + "/edit";
+        $.get(route, function (data) {
+            $("#idedit").val(data.id);
+            $("#ciedit").val(data.ci);
+            $("#complemetoedit").val(data.complemento);
+            $("#nombreedit").val(data.nombre);
+            $("#direccionedit").val(data.direccion);
+            $("#telefonoedit").val(data.telefono);
+            $("#correoedit").val(data.correo);
+            $("#turnoedit").val(data.turno);
+            $("#salarioedit").val(data.salario);
+            $("#fechaNacimientoedit").val(data.fechaNacimiento);
+            $("#paisNacimientoedit").val(data.paisNacimiento);
+            $("#sexoedit").val(data.sexo);
+        });
+    }
+
+    //-----------------------------------------------------
+    //----------------------UPDATE-------------------------
+    //-----------------------------------------------------
+    $("#actualizar").click(function () {
+        var id = $("#idedit").val();
+        var ci = $("#ciedit").val();
+        var complemento = $("#complementoedit").val();
+        var nombre = $("#nombreedit").val();
+        var direccion = $("#direccionedit").val();
+        var telefono = $("#telefonoedit").val();
+        var correo = $("#correoedit").val();
+        var turno = $("#turnoedit").val();
+        var salario = $("#salarioedit").val();
+        var fechaNacimiento = $("#fechaNacimientoedit").val();
+        var paisNacimiento = $("#paisNacimientoedit").val();
+        var sexo = $("#sexoedit").val();
+        var route = "{{ url('bibliotecario') }}/" + id + "";
+        var token = $("input[name=_token]").val();
+        $.ajax({
+            url: route,
+            headers: {
+                'X-CSRF-TOKEN': token
+            },
+            type: 'PUT',
+            dataType: 'json',
+            data: {
+                ci: ci,
+                complemento: complemento,
+                nombre: nombre,
+                direccion: direccion,
+                telefono: telefono,
+                correo: correo,
+                turno: turno,
+                salario: salario,
+                fechaNacimiento: fechaNacimiento,
+                paisNacimiento: paisNacimiento,
+                sexo: sexo,
+            },
+            success: function (data) {
+                if (data.success == "true") {
+                    listBibliotecario();
+                    // $('#CreateModal').modal('toggle');
+                    $('#EditModal .close').click();
+                    // alert("Agregado con exito");
+                    $('#message-update').fadeIn();
+                    $('#message-update').show().delay(3000).fadeOut(1);
+                }
+            },
+            error: function (data) {
+                alert('campos vacios');
+            }
+        });
+    });
+
+    //-----------------------------------------------------
+    //-----------------------STORE-------------------------
+    //-----------------------------------------------------
+
+    $('#enviar').click(function () {
+        var ci = $("#ci").val();
+        var complemento = $("#complemento").val();
+        var nombre = $("#nombre").val();
+        var direccion = $("#direccion").val();
+        var telefono = $("#telefono").val();
+        var correo = $("#correo").val();
+        var turno = $("#turno").val();
+        var salario = $("#salario").val();
+        var fechaNacimiento = $("#fechaNacimiento").val();
+        var paisNacimiento = $("#paisNacimiento").val();
+        var sexo = $("#sexo").val();
+        var token = $("input[name=_token]").val();
+        var route = "{{ route('bibliotecario.store') }}"
+        $.ajax({
+            url: route,
+            headers: {
+                'X-CSRF-TOKEN': token
+            },
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                ci: ci,
+                complemento: complemento,
+                nombre: nombre,
+                direccion: direccion,
+                telefono: telefono,
+                correo: correo,
+                turno: turno,
+                salario:salario,
+                fechaNacimiento: fechaNacimiento,
+                paisNacimiento: paisNacimiento,
+                sexo: sexo,
+            },
+            success: function (data) {
+                if (data.success == "true") {
+                    listBibliotecario();
+                    limpiarFormulario();
+                    $('#CreateModal .close').click();
+                    $('#message-store').fadeIn();
+                    $('#message-store').show().delay(3000).fadeOut(1);
+                }
+            }
+        });
+    });
+
+    //-----------------------------------------------------
+    //---------------------ELIMINAR------------------------
+    //-----------------------------------------------------
+    var Eliminar = function (bibliotecario) {
+        var route = "{{ url('bibliotecario') }}/" + bibliotecario + "/edit";
+        $.get(route, function (data) {
+            $("#idDelete").val(data.id);
+        });
+    }
+
+    //-----------------------------------------------------
+    //---------------------DESTROY-------------------------
+    //-----------------------------------------------------
+    $('#delete').click(function () {
+        var bibliotecario = $("#idDelete").val();
+        var token = $("input[name=_token]").val();
+        var route = "{{ URL('bibliotecario') }}/" + bibliotecario;
+        $.ajax({
+            url: route,
+            headers: {
+                'X-CSRF-TOKEN': token
+            },
+            type: 'DELETE',
+            success: function (data) {
+                if (data.success == "true") {
+                    listBibliotecario();
+                    $('#exampleModalCenter .close').click();
+                    $('#message-destroy').fadeIn();
+                    $('#message-destroy').show().delay(3000).fadeOut(1);
+                }
+            }
+        });
+    });
+</script>
 @endsection
