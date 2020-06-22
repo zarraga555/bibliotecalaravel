@@ -18,7 +18,7 @@
         a {
             text-decoration: none;
         }
-        .btn{
+        .btnT{
                 height: 38px;
             }
         .active a {
