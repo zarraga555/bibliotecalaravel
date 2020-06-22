@@ -25,7 +25,7 @@
                 </td>
         </tr>
             @empty
-                <td colspan="9" class="errortable" align="center">No hay datos disponibles</td>
+                <td colspan="6" class="errortable" align="center">No hay datos disponibles</td>
             @endforelse
     </tbody>
 </table>
