@@ -61,6 +61,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="turno" class="col-md-4 col-form-label text-md-right">Turno</label>
+                            <select class="col-md-4 form-control @error('turno') is-invalid @enderror" name="rol" id="rol">
+                                <option value="">Selecciona una opcion</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Asistente">Asistente</option>
+                                <option value="Estudiante">Estudiante</option>
+                            </select>
+                            {!! $errors->first('turno', '<small>:message</small><br>') !!}
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
