@@ -54,8 +54,8 @@ Route::get('/libros/{libros}/edit', 'libroController@edit' )->name('libros.edit'
 Route::patch('/libros/{libros}', 'libroController@update' )->name('libros.update');
 Route::post('/libros', 'libroController@store' )->name('libros.store');
 //Route::patch('/libros/create', 'libroController@store' )->name('libros.store');
-Route::get('/libros/{libro}', 'libroController@show' )->name('libros.show');
-Route::delete('/libros/{libro}', 'libroController@destroy' )->name('libros.destroy');
+Route::get('/libros/{libros}', 'libroController@show' )->name('libros.show');
+Route::delete('/libros/{libros}', 'libroController@destroy' )->name('libros.destroy');
 
 
 // Route::get('/usuario', 'personaController@index')->name('persona.index');

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Libro extends Model
 {
+    protected $date = ['deleted_at'];
     protected $fillable = ['codigoLibro','nombre','ideditorial','paginas','fecha_lanzamiento','idAutor','idCategoriaLibro'];
     protected $table = 'libro';
     protected $primaryKey = 'id';

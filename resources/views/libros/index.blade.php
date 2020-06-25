@@ -54,9 +54,11 @@
                         <td>
                             <a href="{{ route('libros.edit', $portItem) }}"
                                 class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
-                            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
                                 title="Borrar"><span class="material-icons">delete</span></a>
+                                
                         </td>
+                        
                     </tr>
                 @empty
                     <tr>

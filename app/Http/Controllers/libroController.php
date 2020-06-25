@@ -57,10 +57,14 @@ class libroController extends Controller
         $libros->update(request()->all());
         return redirect()->route('libros.show');
     }
-    public function destroy(Libro $libros)
+    public function destroy($id)
     {
-        $libros->delete();
-        
-        return redirect()->route('libros.index');
+        $libros = Libro::findOrFail($id);
+        $result = $libros->delete();
+        if($result){
+            return response()->json(['success' => 'true']);
+        }else{
+            return response()->json(['success' => 'false']);
+        }
     }
 }

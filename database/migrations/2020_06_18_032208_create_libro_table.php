@@ -20,9 +20,9 @@ class CreateLibroTable extends Migration
             $table->integer('paginas');
             $table->date('fecha_lanzamiento');
             
-            $table->foreignId('idEditorial')->constrained('editorial');
-            $table->foreignId('idAutor')->constrained('autor');
-            $table->foreignId('idCategoriaLibro')->constrained('categorialibro');
+            $table->foreignId('idEditorial')->nullable()->constrained('editorial')->onDelete('set null');
+            $table->foreignId('idAutor')->nullable()->constrained('autor')->onDelete('set null');
+            $table->foreignId('idCategoriaLibro')->nullable()->constrained('categorialibro')->onDelete('set null');
             $table->timestamps();
         });
     }
