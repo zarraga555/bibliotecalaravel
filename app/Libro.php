@@ -3,19 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+//use Illuminate\DataBase\DataManager;
 use Illuminate\Support\Facades\DB;
 
 class Libro extends Model
 {
-    protected $date = ['deleted_at'];
     protected $fillable = ['codigoLibro','nombre','ideditorial','paginas','fecha_lanzamiento','idAutor','idCategoriaLibro'];
     protected $table = 'libro';
     protected $primaryKey = 'id';
     public function scopeName($query,$nombre)
     {
-        if(trim($nombre)!="")
-        {
-            $query->where(DB::raw("LIKE","%$nombre%"));
+        if($nombre){
+            return $query->where('nombre', "LIKE", "%$nombre%");
+        }
+    }
+    public function scopeCodigoLibro($query,$codigoLibro)
+    {
+        if($codigoLibro){
+            return $query->where('codigoLibro', "LIKE", "%$codigoLibro%");
         }
     }
 }

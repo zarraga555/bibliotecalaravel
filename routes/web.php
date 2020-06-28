@@ -57,7 +57,6 @@ Route::post('/libros', 'libroController@store' )->name('libros.store');
 Route::get('/libros/{libros}', 'libroController@show' )->name('libros.show');
 Route::delete('/libros/{libros}', 'libroController@destroy' )->name('libros.destroy');
 
-
 // Route::get('/usuario', 'personaController@index')->name('persona.index');
 // Route::get('/persona/create','personaController@create')->name('persona.create');
 // Route::get('/persona/{personaitem}/edit','personaController@edit')->name('persona.edit');

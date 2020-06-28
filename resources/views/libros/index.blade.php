@@ -3,8 +3,17 @@
 @section('title','Libros')
 
 @section('formulario')
-<div class="container my-5">
 
+<div class="container my-5">
+    <nav class="navbar navbar-light float-right">
+    <form class="form-inline" method="GET">
+      
+            <input name="name" id="name" class="form-control mr-sm-2" type="search" placeholder="Busqueda por nombre" aria-label="Search">
+            <input name="code" id="code" class="form-control mr-sm-2" type="search" placeholder="Busqueda por codigo" aria-label="Search">
+      
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+    </nav>
     <div class="row">
         <div class="col-12 col-lg-6">
             <h1 class="display-4 text-primary">Encuentra los libros que necesitas</h1>
@@ -47,7 +56,7 @@
                         <td>{{ $portItem->nombre }}</td>
                         <td>{{ $portItem->paginas }}</td>
                         <td>{{ $portItem->idEditorial }}</td>
-                        <td>{{ $portItem->idAutor }}</td>
+                        <td>{{ $portItem->autornombre }}</td>
                         <td>{{ $portItem->fecha_lanzamiento }}</td>
                         <td>{{ $portItem->idCategoriaLibro }}</td>
 
@@ -68,6 +77,7 @@
             </tbody>
         </table>
     </div>
-    {{ $libros->links() }}
+    {{-- comment 
+    {{ $libros->links() }}--}}
 </div>
 @endsection
