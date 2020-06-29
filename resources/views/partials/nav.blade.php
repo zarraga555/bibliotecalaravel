@@ -42,7 +42,7 @@
                 <li class=" nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img height="30px" width="30px" src="/img/male-avatar.svg" alt=""> </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item {{ setActive('autor') }}"" href=" /autor">Perfil</a>
+                        <a class="dropdown-item {{ setActive('perfil') }}"" href=" /perfil">Perfil</a>
                         <a href="" class="dropdown-item " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Session</a>
                     </div>
 
