@@ -33,38 +33,42 @@ Crear Prestamo
                     </div>
                     <div class="row">
                         <div class="col-md-5 mb-3">
-                            <label for="idLibro">Libro</label>
-                            <select class="custom-select d-block w-100" id="libro" name="libro" required>
-                                @foreach($libro as $librolItem)
-                                    <option value="{{ $librolItem->id }}"> {{ $librolItem->nombre }} </option>
+                            <label for="libro_id">Libro</label>
+                            <select class="custom-select d-block w-100" id="idLibro" name="idLibro" required>
+                                <div class="invalid-feedback">
+                                    Seleccione un Libro.
+                                </div>
+                                @foreach($libro as $libroItem)
+                                    <option value="{{ $libroItem->id }}"> {{ $libroItem->nombre }} </option>
                                 @endforeach
                             </select>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-5 mb-3">
-                            <label for="idPersona">Persona</label>
-                            <select class="custom-select d-block w-100" id="persona" name="persona"
-                                required>
+                            <label for="persona_id">Persona</label>
+                            <select class="custom-select d-block w-100" id="idPersona" name="idPersona" required>
                                 <div class="invalid-feedback">
-                                    Seleccione a la persona.
+                                    Seleccione un Libro.
                                 </div>
                                 @foreach($persona as $personaItem)
                                     <option value="{{ $personaItem->id }}"> {{ $personaItem->nombre }} </option>
                                 @endforeach
                             </select>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-5 mb-3">
                             <label for="idUsuario">Usuario</label>
-                            <select class="custom-select d-block w-100" id="usuario" name="usuario"
+                            <select class="custom-select d-block w-100" id="idUsuario" name="idUsuario"
                                 required>
                                 <div class="invalid-feedback">
                                     Seleccione el usuario.
                                 </div>
                                 @foreach($usuario as $usuarioItem)
-                                    <option value="{{ $usuarioItem->id }}"> {{ $usuarioItem->nombre }} </option>
+                                    <option value="{{ $usuarioItem->id }}"> {{ $usuarioItem->name }} </option>
                                 @endforeach
                             </select>
                         </div>

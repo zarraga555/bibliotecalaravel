@@ -29,7 +29,7 @@
                     @endif
                 </div>
             </li>
-            <li class=" nav-item {{ setActive('prestamo') }}"><a href="/prestamo" class="nav-link"> Prestamos </a></li>
+        <li class=" nav-item {{ setActive('prestamo') }}"><a href="{{route('prestamos.index')}}" class="nav-link"> Prestamos </a></li>
             @guest
                 <li class=" nav-item {{ setActive('contacto') }}"><a href="/contacto" class="nav-link"> Contacto </a></li>
             @endguest

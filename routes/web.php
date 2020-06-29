@@ -69,10 +69,10 @@ Route::get('listPersona', 'personaController@listPersona');
 Route::get('/prestamos', 'prestamoController@index' )->name('prestamos.index');
 Route::get('/prestamos/create', 'prestamoController@create' )->name('prestamos.create');
 Route::get('/prestamos/{prestamos}/edit', 'prestamoController@edit' )->name('prestamos.edit');
-Route::patch('/prestamos/{libros}', 'prestamoController@update' )->name('prestamos.update');
+Route::patch('/prestamos/{prestamos}', 'prestamoController@update' )->name('prestamos.update');
 Route::post('/prestamos', 'prestamoController@store' )->name('prestamos.store');
 Route::get('/prestamos/{libros}', 'prestamoController@show' )->name('prestamos.show');
-Route::delete('/prestamos/{libros}', 'prestamoController@destroy' )->name('prestamos.destroy');
+Route::delete('/prestamos/{prestamos}', 'prestamoController@destroy' )->name('prestamos.destroy');
 //Route::get('listPersona', 'prestamoController@listPersona');
 
 // Route::view('/prestamo', 'prestamo')->name('prestamo');

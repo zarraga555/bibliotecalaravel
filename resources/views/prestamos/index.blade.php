@@ -29,11 +29,10 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 style="align-items: center">Prestamos</h1>
-        {{-- comment 
-        @auth--}}
+    
+        @auth
             <h2><u><a class="btn btn-primary mb-0" href="{{ route('prestamos.create') }}">Crear Nuevo Libro</a></u></h2>
-        {{-- comment 
-        @endauth--}}
+        @endauth
 
     </div>
     <div id="divTable">
@@ -65,21 +64,26 @@
                         <td>
                             <a href="{{ route('prestamos.edit', $portItem) }}"
                                 class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
-                        <a href="#" onclick="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
+                            <a href="#" onclick="document.getElementById('delete-prestamo').submit()" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
                                 title="Borrar"><span class="material-icons">delete</span></a>
                                 
                         </td>
-                        
                     </tr>
                 @empty
                     <tr>
                         <td colspan="8" class="errortable" align="center">No hay Libros registrados</td>
                     </tr>
                 @endforelse
+                <form action="{{route('prestamos.destroy', $portItem)}}"
+                            id="delete-prestamo"
+                            method="POST"
+                            class="d-none">
+                            @csrf @method('DELETE')
+                </form>
             </tbody>
         </table>
     </div>
-    {{-- comment 
-    {{ $libros->links() }}--}}
+   {{-- comment 
+    {{ $prestamos->links()}}--}}
 </div>
 @endsection
