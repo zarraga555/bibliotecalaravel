@@ -64,6 +64,8 @@ Route::delete('/libros/{libros}', 'libroController@destroy' )->name('libros.dest
 // Route::delete('/persona/{personaitem}', 'personaController@destroy')->name('persona.destroy');
 
 Route::resource('persona', 'personaController')->names('persona');
+Route::get('listPersona', 'personaController@listPersona');
+
 
 Route::get('/prestamos', 'prestamoController@index' )->name('prestamos.index');
 Route::get('/prestamos/create', 'prestamoController@create' )->name('prestamos.create');
