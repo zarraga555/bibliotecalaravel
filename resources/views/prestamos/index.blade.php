@@ -84,8 +84,10 @@
                             <td>
                                 <a href="{{ route('prestamos.edit', $portItem) }}"
                                     class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
-                                <a href="#" onclick="document.getElementById('delete-prestamo').submit()" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
+                                    @if (auth()->check() && auth()->user()->rol == "Administrador")
+                                    <a href="#" onclick="document.getElementById('delete-prestamo').submit()" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
                                     title="Borrar"><span class="material-icons">delete</span></a>
+                                    @endif
 
                             </td>
                         </tr>
