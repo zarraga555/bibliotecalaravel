@@ -10,6 +10,7 @@ class categorialibroController extends Controller
 {
     public function __construct(){
         $this->middleware('auth')->only('index', 'listCategoria', 'show', 'create', 'store', 'edit', 'update', 'destroy');
+        $this->middleware('role');
     }
 
     public function index (){
