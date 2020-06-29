@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class autorController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->only('index', 'listCategoria', 'show', 'create', 'store', 'edit', 'update', 'destroy');
+        $this->middleware('role');
+    }
+
     public function index (){
         // $autor = Autor::paginate(8);
         return view('autor');
