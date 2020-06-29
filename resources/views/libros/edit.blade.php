@@ -71,7 +71,7 @@ Editar Libro | {{$libros->nombre}}
                             </div>
                             <hr class="mb-4">
                             <button class="btn btn-success">Guardar Cambios</button>
-                            <a class="btn btn-block btn-outline-primary" href="{{ route('libros.index') }}">
+                            <a class="btn btn-block btn-outline-secondary" href="{{ route('libros.index') }}">
                                 Cancelar
                             </a>
                 </form>

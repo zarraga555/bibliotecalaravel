@@ -73,7 +73,7 @@ Crear Libros
                             </div>
                         <hr class="mb">
                         <button class="btn btn-primary">Guardar</button>
-                        <a class="btn btn-link btn-block" href="{{ route('libros.index') }}">
+                        <a class="btn btn-block btn-outline-secondary" href="{{ route('libros.index') }}">
                             Cancelar
                         </a>
             </form>
