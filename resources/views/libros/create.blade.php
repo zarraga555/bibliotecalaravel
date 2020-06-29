@@ -72,7 +72,7 @@ Crear Libros
                                 </select>
                             </div>
                         <hr class="mb">
-                        <button class="btn btn-primary">Enviar</button>
+                        <button class="btn btn-primary">Guardar</button>
                         <a class="btn btn-link btn-block" href="{{ route('libros.index') }}">
                             Cancelar
                         </a>
