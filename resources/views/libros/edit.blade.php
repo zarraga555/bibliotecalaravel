@@ -19,8 +19,8 @@
             <input type="text" class="form-control" id="paginas" name="paginas"
                 value="{{ $libros ->paginas }}" required>
              <div>
-             <input type="date" id="fecha" name="fecha" value="{{'fecha_lanzamiento',$libros->fecha}}">
-            </div>
+             <input type="date" id="fecha" name="fecha" value="{{$libros->fecha_lanzamiento}}">
+            </div>comment
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="autor_id">Autor</label>
