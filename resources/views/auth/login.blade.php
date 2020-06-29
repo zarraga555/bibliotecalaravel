@@ -1,6 +1,6 @@
 @extends('layaout')
 
-@section('content')
+@section('formulario')
 <div class="container">
     {{-- <div class="row shadow">
         {{-- <div class="col-md-6 align-self-center">
