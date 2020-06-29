@@ -21,7 +21,9 @@
                 <td>
                     <a href="#" onclick="Ver({{$personaitem->id}})" class="btn btnT btn-info"" title="Ver" data-toggle="modal" data-target="#ShowModal"><span class="material-icons">visibility</span></a>
                     <a href="#" onclick='Mostrar({{$personaitem->id}}) ' class="btn btnT btn-success" title="Editar" class="btn btn-primary" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
-                    <a href="#" onclick='Eliminar({{$personaitem->id}}) ' class="btn btnT btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                    @if (auth()->check() && auth()->user()->rol == "Administrador")
+                        <a href="#" onclick='Eliminar({{$personaitem->id}}) ' class="btn btnT btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                    @endif
                 </td>
         </tr>
             @empty

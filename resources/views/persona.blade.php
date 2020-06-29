@@ -68,7 +68,7 @@ Clientes
         $.get(route, function (data) {
             $("#idShow").val(data.id);
             $("#ciShow").val(data.ci);
-            $("#complemetoShow").val(data.complemento);
+            $("#complementoShow").val(data.complemento);
             $("#nombreShow").val(data.nombre);
             document.getElementById("nombreTShow").innerHTML = "Datos de: "+data.nombre;
             $("#direccionShow").val(data.direccion);
@@ -87,7 +87,7 @@ Clientes
         $.get(route, function (data) {
             $("#idedit").val(data.id);
             $("#ciedit").val(data.ci);
-            $("#complemetoedit").val(data.complemento);
+            $("#complementoedit").val(data.complemento);
             $("#nombreedit").val(data.nombre);
             $("#direccionedit").val(data.direccion);
             $("#telefonoedit").val(data.telefono);
