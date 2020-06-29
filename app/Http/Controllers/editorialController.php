@@ -10,6 +10,8 @@ class editorialController extends Controller
 {
     public function __construct(){
         $this->middleware('auth')->only('index', 'listEditorial', 'show', 'create', 'store', 'edit', 'update', 'destroy');
+        // Este middleware me deja acceder con dos roles
+        $this->middleware('role');
     }
 
     public function index (){
