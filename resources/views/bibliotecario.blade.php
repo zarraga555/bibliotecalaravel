@@ -8,9 +8,9 @@ Bibliotecarios
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 style="align-items: center">Bibliotecarios</h1>
-        @auth
-            <h2><u><a href="#" class="btn btn-primary" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Crear Nuevo Bibliotecario</a></u></h2>
-        @endauth
+        @if(auth()->check() && auth()->user()->rol == "Administrador")
+            <h2><a href="#" class="btn btn-primary" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">Crear Nuevo Bibliotecario</a></h2>
+        @endif
     </div>
 
     <div id="message-store" class="alert alert-success alert-dismissible" role="alert" style="display:none">
@@ -24,6 +24,16 @@ Bibliotecarios
     </div>
 
     <div class="panel-body my-5">
+        <div class="row col-lg-6">
+            <div class="col-sm">
+                <input type="text" class="form-control col-sm" name="search" id="search" placeholder="Buscar por Nombre">
+            </div><br><br>
+            <div class="col-sm">
+                <input type="text" class="form-control col-sm" name="ciSearch" id="ciSearch" placeholder="Buscar por CI">
+            </div>
+            <br>
+        </div>
+        <br>
         <div id="list-Bibliotecario" class="divTable"></div>
     </div>
 
@@ -67,7 +77,7 @@ Bibliotecarios
         $.get(route, function (data) {
             $("#idShow").val(data.id);
             $("#ciShow").val(data.ci);
-            $("#complemetoShow").val(data.complemento);
+            $("#complementoShow").val(data.complemento);
             $("#nombreShow").val(data.nombre);
             document.getElementById("nombreTShow").innerHTML = "Datos de: "+data.nombre;
             $("#direccionShow").val(data.direccion);
@@ -88,7 +98,7 @@ Bibliotecarios
         $.get(route, function (data) {
             $("#idedit").val(data.id);
             $("#ciedit").val(data.ci);
-            $("#complemetoedit").val(data.complemento);
+            $("#complementoedit").val(data.complemento);
             $("#nombreedit").val(data.nombre);
             $("#direccionedit").val(data.direccion);
             $("#telefonoedit").val(data.telefono);
@@ -238,5 +248,32 @@ Bibliotecarios
             }
         });
     });
+
+    //-----------------------------------------------------
+    //----------------------SEARCH-------------------------
+    //-----------------------------------------------------
+
+    $(document).on('keyup', '#search, #ciSearch', function(){
+        var search = $('#search').val();
+        var ci = $('#ciSearch').val();
+        var route = "{{ route('bibliotecario.search') }}"
+        $.ajax({
+            type: 'GET',
+            url: route,
+            data: {
+                search: search,
+                ci: ci,
+            },
+            success: function(data){
+                console.log(data);
+                    $('tbody').empty().html(data);
+
+
+            }
+
+        });
+    });
+
 </script>
 @endsection
+
