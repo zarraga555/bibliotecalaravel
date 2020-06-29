@@ -5,7 +5,7 @@
 @endsection
 
 @section('formulario')
-<div class="container">
+<div class="container py-5">
     @if (session('status'))
         <h1>{{ session('status') }}</h1>
     @else
