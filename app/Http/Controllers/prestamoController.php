@@ -26,12 +26,12 @@ class prestamoController extends Controller
             'prestamos' => $prestamo
         ], compact('prestamo'));
     }
-    public function create(Prestamo $prestamo){
+    public function create(Prestamo $prestamos){
         $libro = Libro::all();
         $persona = Persona::all();
         $usuario = User::all();
         return view('prestamos.create', [
-            'prestamo' => new Prestamo
+            'prestamos' => new Prestamo
         ], compact('libro', 'persona', 'usuario'));
     }
     public function store(){
@@ -46,25 +46,20 @@ class prestamoController extends Controller
         ]);
         return redirect()->route('prestamos.index');
     }
-    public function edit($librosnombre){
-        $libros = Libro::findOrFail($librosnombre);
-        $editorial = Editorial::all();
-        $autor = Autor::all();
-        $categoria = Categorialibro::all();
-        return view('libros.edit', compact('libros','editorial', 'autor', 'categoria'));
+    public function edit(Prestamo $prestamos){
+        $libro = Libro::all();
+        $persona = Persona::all();
+        $usuario = User::all();
+        return view('prestamos.edit',['prestamos' => $prestamos], compact('libro','persona','usuario'));
     }
-    public function update(Libro $libros){
-        $libros->update(request()->all());
-        return redirect()->route('libros.show');
+    public function update(Prestamo $prestamos){
+        $prestamos->update(request()->all());
+        return redirect()->route('prestamos.index', $prestamos);
     }
-    public function destroy($id)
+    public function destroy(Prestamo $prestamos)
     {
-        $libros = Libro::findOrFail($id);
-        $result = $libros->delete();
-        if($result){
-            return response()->json(['success' => 'true']);
-        }else{
-            return response()->json(['success' => 'false']);
-        }
+        $prestamos->delete();
+        
+        return redirect()->route('prestamos.index');
     }
 }
