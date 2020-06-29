@@ -35,6 +35,7 @@ Route::view('/', 'home')->name('home');
 
 Route::resource('bibliotecario', 'bibliotecarioController')->names('bibliotecario');
 Route::get('listBibliotecario', 'bibliotecarioController@listBibliotecario');
+Route::get('listBibliotecario/search', 'bibliotecarioController@search')->name('bibliotecario.search');
 
 Route::resource('autor', 'autorController')->names('autor');
 Route::get('listAutor', 'autorController@listAutor');
@@ -76,6 +77,9 @@ Route::get('listPersona', 'personaController@listPersona');
 /* INSERT INTO persona (ci, nombre, direccion, telefono, correo, fechaNacimiento, paisNacimiento)
 VALUES (12648902, 'Juan Alberto Zarraga Torrico', 'Av Segunda Circunvalacion #0260', 76917812, 'zarraga555@gmail.com', '1996-11-15', 'Argentina'); */
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::view('/contacto', 'contacto')->name('contacto');
+Route::post('/contacto', 'MessageController@store');
