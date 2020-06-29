@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bibliotecario;
+use App\DB;
 use App\Http\Requests\BibliotecarioRequest;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,13 @@ class bibliotecarioController extends Controller
 {
     public function __construct(){
         $this->middleware('auth')->only('index','listBibliotecario' , 'show', 'create', 'store', 'edit', 'update', 'destroy');
+        // Este middleware me deja acceder con dos roles
+        //$this->middleware('role');
+        //Este middleware me deja acceder como Admin
+        $this->middleware('Administrador');
+        // $this->middleware('Asistente')->except('index', 'listBibliotecario', 'edit');
+        // $this->middleware('Estudiante')->only('index','listBibliotecario' , 'show', 'create', 'store', 'edit', 'update', 'destroy');
+
     }
 
     public function index (){
@@ -20,6 +28,38 @@ class bibliotecarioController extends Controller
     public function listBibliotecario(){
         $bibliotecario = Bibliotecario::paginate(8);
         return view('bibliotecario.listBibliotecario', compact('bibliotecario'));
+    }
+
+    public function search (Request $request){
+        if($request->ajax()){
+            $salida = "";
+            $search = $request->get('search');
+            $ci = $request->get('ci');
+            $data = Bibliotecario::where('nombre', 'LIKE', '%' .$search. '%')
+                    ->orWhere('ci', 'LIKE', '%' .$ci. '%')->get();
+            if($data){
+                foreach($data as $datas){
+                    $salida .= '<tr>
+                                <td>' .$datas->ci. '</td>
+                                <td>' .$datas->complemento. '</td>
+                                <td>' .$datas->nombre. '</td>
+                                <td>' .$datas->correo. '</td>
+                                <td>' .$datas->turno. '</td>
+                                <td>' .$datas->salario. '</td>
+                                <td>'.
+                                    '<a href="#" onclick="Ver('.$datas->id.')" class="btn btnT btn-info" title="Ver" data-toggle="modal" data-target="#ShowModal"><span class="material-icons">visibility</span></a>
+                                    <a href="#" onclick="Mostrar('.$datas->id.') " class="btn btnT btn-success" title="Editar" class="btn btn-primary" data-toggle="modal" data-target="#EditModal"><span class="material-icons">create</span></a>
+                                    <a href="#" onclick="Eliminar('.$datas->id.') " class="btn btnT btn-danger" data-toggle="modal" data-target="#exampleModalCenter" title="Borrar"><span class="material-icons">delete</span></a>
+                                    '.
+                                '</td>'.
+                                '</tr>
+                                ';
+                }
+                return response($salida);
+            }else{
+                return response()->json(['false' => 'No hay registros']);
+            }
+        }
     }
 
     public function show(Bibliotecario $bibliotecario){
