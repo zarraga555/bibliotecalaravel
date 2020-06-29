@@ -74,7 +74,7 @@
                         <td colspan="8" class="errortable" align="center">No hay Libros registrados</td>
                     </tr>
                 @endforelse
-                <form action="{{route('prestamos.destroy', $portItem)}}"
+                <form action="{{route('prestamos.destroy', $portItem ?? '' )}}"
                             id="delete-prestamo"
                             method="POST"
                             class="d-none">
