@@ -47,13 +47,12 @@ Route::resource('categoria', 'categorialibroController')->names('categoria');
 Route::get('listCategoria', 'categorialibroController@listCategoria');
 
 
-
 Route::get('/libros', 'libroController@index' )->name('libros.index');
 Route::get('/libros/create', 'libroController@create' )->name('libros.create');
 Route::get('/libros/{libros}/edit', 'libroController@edit' )->name('libros.edit');
 Route::patch('/libros/{libros}', 'libroController@update' )->name('libros.update');
 Route::post('/libros', 'libroController@store' )->name('libros.store');
-Route::get('/libros/{libros}', 'libroController@show' )->name('libros.show');
+//Route::get('/libros/{libros}', 'libroController@show' )->name('libros.show');
 Route::delete('/libros/{libros}', 'libroController@destroy' )->name('libros.destroy');
 
 // Route::get('/usuario', 'personaController@index')->name('persona.index');

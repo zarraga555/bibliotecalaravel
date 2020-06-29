@@ -24,12 +24,12 @@ class libroController extends Controller
             'libros' => Libro::latest()->paginate()
         ], compact('libros'));*/
     }
-    public function show(Libro $libro){
+    /*public function show(Libro $libro){
         $libro = Libro::all();
         return view('libros.show',[
             'libros' => $libro
         ], compact('libro'));
-    }
+    }*/
     public function create(Libro $libros){
         $editorial = Editorial::all();
         $autor = Autor::all();
@@ -39,9 +39,6 @@ class libroController extends Controller
         ], compact('editorial', 'autor', 'categoria'));
     }
     public function store(){
-        /*$editorial = Editorial::all();
-        $autor = Autor::all();
-        $categoria = Categorialibro::all();*/
         Libro:: create([
             'codigoLibro' => request('codigoLibro'),
             'nombre' => request('nombres'),
@@ -53,25 +50,20 @@ class libroController extends Controller
         ]);
         return redirect()->route('libros.index');
     }
-    public function edit($librosnombre){
-        $libros = Libro::findOrFail($librosnombre);
+    public function edit(Libro $libros){
         $editorial = Editorial::all();
         $autor = Autor::all();
         $categoria = Categorialibro::all();
-        return view('libros.edit', compact('libros','editorial', 'autor', 'categoria'));
+        return view('libros.edit',['libros' => $libros], compact('editorial','autor','categoria'));
     }
     public function update(Libro $libros){
         $libros->update(request()->all());
-        return redirect()->route('libros.show');
+        return redirect()->route('libros.index', $libros);
     }
-    public function destroy($id)
+    public function destroy(Libro $libros)
     {
-        $libros = Libro::findOrFail($id);
-        $result = $libros->delete();
-        if($result){
-            return response()->json(['success' => 'true']);
-        }else{
-            return response()->json(['success' => 'false']);
-        }
+        $libros->delete();
+        
+        return redirect()->route('libros.index');
     }
 }

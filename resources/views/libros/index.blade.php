@@ -63,11 +63,15 @@
                         <td>
                             <a href="{{ route('libros.edit', $portItem) }}"
                                 class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
-                        <a href="#" onclick="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
-                                title="Borrar"><span class="material-icons">delete</span></a>
-                                
+                            <a href="#" onclick="document.getElementById('delete-libro').submit()" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
+                                title="Borrar"><span class="material-icons">delete</span></a>                       
                         </td>
-                        
+                        <form action="{{route('libros.destroy', $portItem)}}"
+                             id="delete-libro"
+                             method="POST"
+                             class="d-none">
+                             @csrf @method('DELETE')
+                        </form>
                     </tr>
                 @empty
                     <tr>
