@@ -48,16 +48,13 @@ Route::get('listCategoria', 'categorialibroController@listCategoria');
 
 
 
-//Route::post('/libro', 'libroValidationController@store' );
 Route::get('/libros', 'libroController@index' )->name('libros.index');
 Route::get('/libros/create', 'libroController@create' )->name('libros.create');
 Route::get('/libros/{libros}/edit', 'libroController@edit' )->name('libros.edit');
 Route::patch('/libros/{libros}', 'libroController@update' )->name('libros.update');
 Route::post('/libros', 'libroController@store' )->name('libros.store');
-//Route::patch('/libros/create', 'libroController@store' )->name('libros.store');
-Route::get('/libros/{libro}', 'libroController@show' )->name('libros.show');
-Route::delete('/libros/{libro}', 'libroController@destroy' )->name('libros.destroy');
-
+Route::get('/libros/{libros}', 'libroController@show' )->name('libros.show');
+Route::delete('/libros/{libros}', 'libroController@destroy' )->name('libros.destroy');
 
 // Route::get('/usuario', 'personaController@index')->name('persona.index');
 // Route::get('/persona/create','personaController@create')->name('persona.create');
@@ -68,8 +65,14 @@ Route::delete('/libros/{libro}', 'libroController@destroy' )->name('libros.destr
 
 Route::resource('persona', 'personaController')->names('persona');
 
-Route::resource('prestamo', 'prestamoController');
-Route::get('listPersona', 'personaController@listPersona');
+Route::get('/prestamos', 'prestamoController@index' )->name('prestamos.index');
+Route::get('/prestamos/create', 'prestamoController@create' )->name('prestamos.create');
+Route::get('/prestamos/{prestamos}/edit', 'prestamoController@edit' )->name('prestamos.edit');
+Route::patch('/prestamos/{libros}', 'prestamoController@update' )->name('prestamos.update');
+Route::post('/prestamos', 'prestamoController@store' )->name('prestamos.store');
+Route::get('/prestamos/{libros}', 'prestamoController@show' )->name('prestamos.show');
+Route::delete('/prestamos/{libros}', 'prestamoController@destroy' )->name('prestamos.destroy');
+//Route::get('listPersona', 'prestamoController@listPersona');
 
 // Route::view('/prestamo', 'prestamo')->name('prestamo');
 // Route::post('/prestamo', 'prestamoValidationController@store' );

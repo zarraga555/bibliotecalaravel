@@ -12,11 +12,17 @@ use Illuminate\Http\Request;
 
 class libroController extends Controller
 {
-    public function index (){
-        $libros = Libro::all();
+    public function index (Request $request){
+        $name = $request->get('name');
+        $codigoLibro = $request->get('code');
+        $libros = Libro::name($name)
+        ->codigoLibro($codigoLibro)
+        ->get();
+        return view('libros.index', compact('libros'));
+        /*$libros = Libro::all();
         return view('libros.index', [
             'libros' => Libro::latest()->paginate()
-        ], compact('libros'));
+        ], compact('libros'));*/
     }
     public function show(Libro $libro){
         $libro = Libro::all();
@@ -47,20 +53,25 @@ class libroController extends Controller
         ]);
         return redirect()->route('libros.index');
     }
-    public function edit($libros){
+    public function edit($librosnombre){
+        $libros = Libro::findOrFail($librosnombre);
         $editorial = Editorial::all();
         $autor = Autor::all();
         $categoria = Categorialibro::all();
-        return redirect()->route('libros.edit', compact('editorial', 'autor', 'categoria', 'libros'));
+        return view('libros.edit', compact('libros','editorial', 'autor', 'categoria'));
     }
     public function update(Libro $libros){
         $libros->update(request()->all());
         return redirect()->route('libros.show');
     }
-    public function destroy(Libro $libros)
+    public function destroy($id)
     {
-        $libros->delete();
-        
-        return redirect()->route('libros.index');
+        $libros = Libro::findOrFail($id);
+        $result = $libros->delete();
+        if($result){
+            return response()->json(['success' => 'true']);
+        }else{
+            return response()->json(['success' => 'false']);
+        }
     }
 }

@@ -1,6 +1,6 @@
 @extends('layaout')
 
-@section('title','Libros')
+@section('title','Prestamos')
 
 @section('formulario')
 
@@ -28,10 +28,12 @@
 
 
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 style="align-items: center">Libros</h1>
-        @auth
-            <h2><u><a class="btn btn-primary mb-0" href="{{ route('libros.create') }}">Crear Nuevo Libro</a></u></h2>
-        @endauth
+        <h1 style="align-items: center">Prestamos</h1>
+        {{-- comment 
+        @auth--}}
+            <h2><u><a class="btn btn-primary mb-0" href="{{ route('prestamos.create') }}">Crear Nuevo Libro</a></u></h2>
+        {{-- comment 
+        @endauth--}}
 
     </div>
     <div id="divTable">
@@ -39,29 +41,29 @@
             <thead>
                 <tr style="color: black" class="table-primary">
                     <th scope="col">Codigo libro</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Paginas</th>
-                    <th scope="col">Editorial</th>
-                    <th scope="col">Autor</th>
-                    <th scope="col">Num. paginas</th>
-                    <th scope="col">Categoria</th>
+                    <th scope="col">Tipo prestamo</th>
+                    <th scope="col">Fecha prestamo</th>
+                    <th scope="col">Fecha devolucion</th>
+                    <th scope="col">Libro</th>
+                    <th scope="col">Persona</th>
+                    <th scope="col">Usuario</th>
                     <th scope="col">Acciones
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($libros as $portItem)
+                @forelse($prestamos as $portItem)
                     <tr>
-                        <th scope="row">{{ $portItem->codigoLibro }}</th>
-                        <td>{{ $portItem->nombre }}</td>
-                        <td>{{ $portItem->paginas }}</td>
-                        <td>{{ $portItem->idEditorial }}</td>
-                        <td>{{ $portItem->idAutor }}</td>
-                        <td>{{ $portItem->fecha_lanzamiento }}</td>
-                        <td>{{ $portItem->idCategoriaLibro }}</td>
+                        <th scope="row">{{ $portItem->id }}</th>
+                        <td>{{ $portItem->tipoPrestamo }}</td>
+                        <td>{{ $portItem->fecha_prestamo }}</td>
+                        <td>{{ $portItem->fecha_devolucion }}</td>
+                        <td>{{ $portItem->idLibro }}</td>
+                        <td>{{ $portItem->idPersona }}</td>
+                        <td>{{ $portItem->idUsuario }}</td>
 
                         <td>
-                            <a href="{{ route('libros.edit', $portItem) }}"
+                            <a href="{{ route('prestamos.edit', $portItem) }}"
                                 class="btn btn-success" title="Editar"><span class="material-icons">create</span></a>
                         <a href="#" onclick="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
                                 title="Borrar"><span class="material-icons">delete</span></a>

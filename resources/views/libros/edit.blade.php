@@ -1,9 +1,9 @@
-<form method="POST" action="{{ route('libros.update', $libros) }}">
+<form method="GET" action="{{ route('libros.update', $libros) }}">
     @csrf @method('PATCH')
     <div class="mb-3">
         <label for="codigoLibro">Codigo libro</label>
         <input type="text" class="form-control" id="codigoLibro" name="codigoLibro"
-            value="{{old('codigolibro', $libros)}}" required>
+            value="{{old('codigolibro', $libros->codigoLibro)}}" required>
     </div>
 
 
@@ -11,7 +11,7 @@
     <div class="mb-3">
         <label for="nombre">Nombre libro</label>
         <input type="text" class="form-control" id="nombres" name="nombres"
-            value="{{old('nombre', $libros)}}" required>
+            value="{{old('nombre', $libros->nombre)}}" required>
     </div>
     <div class="row">
         <div class="col-md-6 mb-3">
@@ -19,8 +19,8 @@
             <input type="text" class="form-control" id="paginas" name="paginas"
                 value="{{ $libros ->paginas }}" required>
              <div>
-              <input type="date" id="fecha" name="fecha">
-            </div>
+             <input type="date" id="fecha" name="fecha" value="{{$libros->fecha_lanzamiento}}">
+            </div>comment
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="autor_id">Autor</label>

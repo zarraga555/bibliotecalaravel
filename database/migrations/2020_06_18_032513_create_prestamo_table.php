@@ -19,9 +19,9 @@ class CreatePrestamoTable extends Migration
             $table->date('fecha_prestamo');
             $table->date('fecha_devolucion');
 
-            $table->foreignId('idLibro')->constrained('libro');
-            $table->foreignId('idPersona')->constrained('persona');
-            $table->foreignId('idUsuario')->constrained('users');
+            $table->foreignId('idLibro')->nullable()->constrained('libro')->onDelete('set null');
+            $table->foreignId('idPersona')->nullable()->constrained('persona')->onDelete('set null');
+            $table->foreignId('idUsuario')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
 
