@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class libroController extends Controller
 {
+    public function __construct(){
+        //Este middleware me permite conectar a 3 roles
+        $this->middleware('roles')->except('index');
+    }
+
     public function index (Request $request){
         $name = $request->get('name');
         $codigoLibro = $request->get('code');
@@ -45,7 +50,7 @@ class libroController extends Controller
             'paginas' => request('paginas'),
             'fecha_lanzamiento' => request('fecha'),
             'idAutor' => request('autor'),
-            'ideditorial' => request('editorial'),            
+            'ideditorial' => request('editorial'),
             'idCategoriaLibro' => request('categoria_libro_id')
         ]);
         return redirect()->route('libros.index');
@@ -63,7 +68,7 @@ class libroController extends Controller
     public function destroy(Libro $libros)
     {
         $libros->delete();
-        
+
         return redirect()->route('libros.index');
     }
 }
