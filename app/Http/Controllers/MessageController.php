@@ -24,6 +24,9 @@ class MessageController extends Controller
                 [
                     //Mensajes Prersonalizados
                     'nombre.required' => 'Necesito tu nombre',
+                    'email.required' => 'Necesito el email',
+                    'asunto.required' => 'Necesito el asunto del mensaje',
+                    'mensaje.required' => 'Necesito el mensaje',
                 ]
             );
             // Para mandar email lo primero lo que debemos hacer es abrir la terminal
