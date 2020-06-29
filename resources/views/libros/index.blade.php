@@ -92,18 +92,18 @@
                                 <a href="#" onclick="document.getElementById('delete-libro').submit()" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
                                     title="Borrar"><span class="material-icons">delete</span></a>
                             </td>
-                            <form action="{{route('libros.destroy', $portItem)}}"
-                                 id="delete-libro"
-                                 method="POST"
-                                 class="d-none">
-                                 @csrf @method('DELETE')
-                            </form>
                         </tr>
                     @empty
                         <tr>
                             <td colspan="8" class="errortable" align="center">No hay Libros registrados</td>
                         </tr>
                     @endforelse
+                    <form action="{{route('libros.destroy',  $portItem ?? '' )}}"
+                                 id="delete-libro"
+                                 method="POST"
+                                 class="d-none">
+                                 @csrf @method('DELETE')
+                            </form>
                 </tbody>
             </table>
         </div>
