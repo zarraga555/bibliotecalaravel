@@ -1,6 +1,6 @@
 @extends('layaout')
 
-@section('title','lista Empleados ')
+@section('title','lista Libros ')
 
 @section('formulario')
 
@@ -10,13 +10,14 @@
         <p class="list-group-item list-group-item list-group-item-dark">{{ $libros->codigoLibro }}</p>
         <p class="list-group-item list-group-item list-group-item-dark">{{ $libros->nombre }}</p>
         <p class="list-group-item list-group-item list-group-item-dark">{{$libros ->paginas}}</p>
-        <p class="list-group-item list-group-item list-group-item-dark">{{$libros ->idEditorial}}</p>
+        <p class="list-group-item list-group-item list-group-item-dark">{{$libros ->fecha_lanzamiento}}</p>
         <p class="list-group-item list-group-item list-group-item-dark">{{$libros ->idAutor}}</p>
+        <p class="list-group-item list-group-item list-group-item-dark">{{$libros ->ideditorial}}</p>
         <p class="list-group-item list-group-item list-group-item-dark">{{$libros ->idCategoriaLibro}}</p>
 
         <div class="d-flex justify-content-between
             align-items-center">        
-            <a href="{{route('listaEmpleados.index')}}">
+            <a href="{{route('libros.index')}}">
                 Regresar
             </a>
         </div> 

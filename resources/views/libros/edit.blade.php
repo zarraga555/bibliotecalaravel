@@ -1,4 +1,4 @@
-<form method="GET" action="{{ route('libros.update', $libros) }}">
+<form method="POST" action="{{ route('libros.update', $libros) }}">
     @csrf @method('PATCH')
     <div class="mb-3">
         <label for="codigoLibro">Codigo libro</label>
