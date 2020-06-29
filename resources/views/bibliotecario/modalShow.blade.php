@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="FormCreate">
+                <form>
                     {{-- method="POST" action="{{ route('autor.store') }}" --}}
                     @csrf
                     <div class="row">
