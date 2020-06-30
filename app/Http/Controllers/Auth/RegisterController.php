@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Persona;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,11 +66,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'rol' => $data['rol'],
+        // ]);
+
+
+        $persona = Persona::create([
+            'ci' => $data['ci'],
+            'complemento' => $data['complemento'],
+            'nombre' => $data['name'],
+            'direccion' => $data['direccion'],
+            'telefono' => $data['telefono'],
+            'correo' => $data['email'],
+            'fechaNacimiento' => $data['fechaNacimiento'],
+            'paisNacimiento' => $data['paisNacimiento'],
+        ]);
+
+        // $ci = $data['ci'];
+        // $id = Persona::Find($ci);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'rol' => $data['rol'],
+            // 'idBibliotecario' => $data['idBibliotecario'],
+            'idPersona' => $data['ci'],
         ]);
+        return $user;
     }
 }
