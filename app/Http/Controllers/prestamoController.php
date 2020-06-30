@@ -36,8 +36,6 @@ class prestamoController extends Controller
     }
     public function store(){
         Prestamo:: create([
-            'id' => request('id'),
-            'tipoPrestamo' => request('tipoPrestamo'),
             'fecha_prestamo' => request('fecha_prestamo'),
             'fecha_devolucion' => request('fecha_devolucion'),
             'idLibro' => request('idLibro'),

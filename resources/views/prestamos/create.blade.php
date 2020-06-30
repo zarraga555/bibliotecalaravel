@@ -11,11 +11,12 @@ Crear Prestamo
                 <br>
                 <form method="POST" action="{{ route('prestamos.store') }}">
                     @csrf
+                   {{-- comment 
                     <div class="form-group mb-3">
                         <label for="id">Id del prestamo</label>
                         <input type="text" class="form-control" id="id" name="id"
                             value="{{ old('id') }}" required>
-                    </div>
+                    </div>--}}
 
                         <div class="form-group mb-3">
                             <label for="tipoPrestamo">Tipo de prestamo</label>
