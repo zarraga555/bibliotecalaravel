@@ -267,10 +267,7 @@ Bibliotecarios
             success: function(data){
                 console.log(data);
                     $('tbody').empty().html(data);
-
-
             }
-
         });
     });
 

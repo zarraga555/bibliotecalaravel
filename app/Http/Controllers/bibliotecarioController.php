@@ -35,8 +35,14 @@ class bibliotecarioController extends Controller
             $salida = "";
             $search = $request->get('search');
             $ci = $request->get('ci');
-            $data = Bibliotecario::where('nombre', 'LIKE', '%' .$search. '%')
-                    ->orWhere('ci', 'LIKE', '%' .$ci. '%')->get();
+            if($search !=""){
+                $data = Bibliotecario::where('nombre', 'LIKE', '%' .$search. '%')->get();
+            }elseif($ci !=""){
+                $data = Bibliotecario::where('ci', 'LIKE',  $ci. '%')->get();
+            }
+
+            // $data = Bibliotecario::where('nombre', 'LIKE', '%' .$search. '%')
+            //         ->orWhere('ci', 'LIKE', '%' .$ci. '%')->get();
             if($data){
                 foreach($data as $datas){
                     $salida .= '<tr>
