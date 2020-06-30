@@ -60,7 +60,6 @@
                 <thead>
                     <tr style="color: black" class="table-primary">
                         <th scope="col">Codigo libro</th>
-                        <th scope="col">Tipo prestamo</th>
                         <th scope="col">Fecha prestamo</th>
                         <th scope="col">Fecha devolucion</th>
                         <th scope="col">Libro</th>
@@ -74,7 +73,6 @@
                     @forelse($prestamos as $portItem)
                         <tr>
                             <th scope="row">{{ $portItem->id }}</th>
-                            <td>{{ $portItem->tipoPrestamo }}</td>
                             <td>{{ $portItem->fecha_prestamo }}</td>
                             <td>{{ $portItem->fecha_devolucion }}</td>
                             <td>{{ $portItem->idLibro }}</td>

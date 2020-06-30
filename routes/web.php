@@ -87,3 +87,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('/contacto', 'contacto')->name('contacto');
 Route::post('/contacto', 'MessageController@store');
+
+Route::get('/registers', 'registersController@create')->name('registers.create');
+Route::post('/registers', 'registersController@store')->name('registers.store');

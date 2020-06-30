@@ -14,9 +14,11 @@
                 @if(auth()->check() && auth()->user()->rol == "Administrador")
                 <li class=" nav-item {{ setActive('bibliotecario') }}"><a href="/bibliotecario"class="nav-link"> Bibliotecarios </a></li>
                 <li class=" nav-item {{ setActive('persona') }}"><a href="/persona" class="nav-link"> Clientes </a></li>
+                <li class=" nav-item {{ setActive('registers') }}"><a href="/registers"class="nav-link"> Registro de usuario </a></li>
                 @endif
                 @if (auth()->check() && auth()->user()->rol == "Asistente")
                     <li class=" nav-item {{ setActive('persona') }}"><a href="/persona" class="nav-link"> Clientes </a></li>
+                    <li class=" nav-item {{ setActive('registers') }}"><a href="/registers"class="nav-link"> Registro de usuario </a></li>
                 @endif
                 <li class=" nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Libros </a>
