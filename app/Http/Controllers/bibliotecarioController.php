@@ -101,6 +101,7 @@ class bibliotecarioController extends Controller
 
             if($result){
                 return response()->json(['success' => 'true']);
+
             }else{
                 return response()->json(['success' => 'false']);
             }
@@ -129,6 +130,7 @@ class bibliotecarioController extends Controller
         //     'paisNacimiento' => request('paisNacimiento'),
         //     'sexo' => request('sexo'),
         //     $request->validated()
+
         // ]);
         // return redirect()->route('bibliotecario.index');
         if($request->ajax()){

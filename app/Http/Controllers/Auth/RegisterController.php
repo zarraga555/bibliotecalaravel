@@ -74,7 +74,7 @@ class RegisterController extends Controller
         // ]);
 
 
-        $persona = Persona::create([
+        Persona::create([
             'ci' => $data['ci'],
             'complemento' => $data['complemento'],
             'nombre' => $data['name'],
